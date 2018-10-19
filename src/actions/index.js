@@ -1,9 +1,11 @@
+import { INCREMENT, DECREMENT } from './actionTypes';
+
 export const AddCounter = () => ({
-    type: 'INCREMENT',
+    type: INCREMENT,
     payload: 1,
 });
 
 export const DecCounter = () => ({
-    type: 'DECREMENT',
+    type: DECREMENT,
     payload: 1,
 });
