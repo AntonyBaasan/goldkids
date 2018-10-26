@@ -13,7 +13,7 @@ import { createStore } from 'redux';
 import reducers from './src/reducers';
 import Header from './src/components/header';
 import Counter from './src/components/Counter';
-import RootPage from './src/pages/RootPage';
+import { RootPage } from './src/pages/RootPage';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n Cmd+D or shake for dev menu',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Footer, FooterTab, Button, Text } from 'native-base';
 
-class RootPage extends Component {
+export class RootPage extends Component {
     render() {
         return (
             <Container>
@@ -24,5 +24,3 @@ class RootPage extends Component {
         );
     }
 }
-
-export default RootPage;
