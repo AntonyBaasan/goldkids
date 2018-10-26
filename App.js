@@ -13,7 +13,7 @@ import { createStore } from 'redux';
 import reducers from './src/reducers';
 import Header from './src/components/header';
 import Counter from './src/components/Counter';
-import { RootPage } from './src/pages/RootPage';
+import RootScreen from './src/screens/rootScreen/RootScreen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n Cmd+D or shake for dev menu',
@@ -40,7 +40,7 @@ export default class App extends Component<Props> {
   renderMain() {
     return (
       <Provider store={createStore(reducers)}>
-        <RootPage />
+        <RootScreen />
       </Provider>
     );
   }
