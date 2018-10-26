@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
 
 
-export class KidsScreen extends Component {
+export class KidsDetailsScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <Text>Kids Screen 2</Text>
+            <View>
+                <Text >Kids Details</Text>
                 <Button
                     bordered
                     success
-                    onPress={() => this.props.navigation.navigate('KidsDetails')}
+                    onPress={() => this.props.navigation.goBack()}
                 >
-                    <Text> Go to Buyan </Text>
+                    <Text>Go back</Text>
                 </Button>
             </View>
         );
