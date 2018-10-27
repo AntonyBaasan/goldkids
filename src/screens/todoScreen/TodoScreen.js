@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 import { selectTodoDisplayDay } from '../../actions/todoDisplayActions';
+import KidsList from './KidsList';
+import KidsTodoList from './KidsTodoList';
 
 
 class TodoScreen extends Component {
@@ -48,6 +50,8 @@ class TodoScreen extends Component {
         return (
             <View>
                 {this.renderWeekdays()}
+                <KidsList />
+                <KidsTodoList />
             </View>
         );
     }

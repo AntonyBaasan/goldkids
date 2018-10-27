@@ -1,15 +1,15 @@
 import { ADD_CHILD } from '../actions/actionTypes';
 
-const INITIAL_STATE = [{
-    id: 1,
-    name: 'Buyan',
-    picture: '',
-},
-{
-    id: 2,
-    name: 'Amy',
-    picture: '',
-}];
+const INITIAL_STATE = {
+    1: {
+        name: 'Buyan',
+        picture: '',
+    },
+    2: {
+        name: 'Amy',
+        picture: '',
+    }
+};
 
 export const kidsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
