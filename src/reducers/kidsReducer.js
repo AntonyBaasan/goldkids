@@ -1,11 +1,11 @@
 import { ADD_CHILD } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-    1: {
+    xuuser1: {
         name: 'Buyan',
         picture: '',
     },
-    2: {
+    xuuser2: {
         name: 'Amy',
         picture: '',
     }
