@@ -8,7 +8,15 @@ class KidsScreen extends Component {
 
     renderKids() {
         return _.map(this.props.kids, (k) =>
-            <Text>{k.name}</Text>
+            <View key={k.id}>
+                <Button
+                    bordered
+                    success
+                    onPress={() => this.props.navigation.navigate('KidsDetails', { childId: k.id })}
+                >
+                    <Text> Go to {k.name} </Text>
+                </Button>
+            </View>
         );
     }
 
@@ -16,13 +24,6 @@ class KidsScreen extends Component {
         return (
             <View style={{ flex: 1 }}>
                 <Text>Kids Screen 2</Text>
-                <Button
-                    bordered
-                    success
-                    onPress={() => this.props.navigation.navigate('KidsDetails')}
-                >
-                    <Text> Go to Buyan </Text>
-                </Button>
                 {this.renderKids()}
             </View>
         );

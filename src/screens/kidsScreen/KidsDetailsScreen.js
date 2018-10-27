@@ -1,12 +1,13 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 
-
-export class KidsDetailsScreen extends Component {
+class KidsDetailsScreen extends Component {
     render() {
         return (
             <View>
-                <Text >Kids Details</Text>
+                <Text >{this.props.kid.name} Details</Text>
                 <Button
                     bordered
                     success
@@ -18,3 +19,10 @@ export class KidsDetailsScreen extends Component {
         );
     }
 }
+
+const mapStateToProp = (state, ownProp) => {
+    const { navigation } = ownProp;
+    const childId = navigation.getParam('childId');
+    return { kid: _.find(state.kids, k => k.id === childId) };
+};
+export default connect(mapStateToProp, null)(KidsDetailsScreen);

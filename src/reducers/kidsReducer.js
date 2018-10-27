@@ -1,10 +1,12 @@
 import { ADD_CHILD } from '../actions/actionTypes';
 
 const INITIAL_STATE = [{
+    id: 1,
     name: 'Buyan',
     picture: '',
 },
 {
+    id: 2,
     name: 'Amy',
     picture: '',
 }];

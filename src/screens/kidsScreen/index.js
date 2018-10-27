@@ -1,2 +1,2 @@
 export { default as KidsScreen } from './KidsScreen';
-export * from './KidsDetailsScreen';
+export { default as KidsDetailsScreen } from './KidsDetailsScreen';
