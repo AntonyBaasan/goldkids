@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
+import { connect } from 'react-redux';
 
 
-export class KidsScreen extends Component {
+class KidsScreen extends Component {
+
+    renderKids() {
+        return (<Text>{this.props.kids[0].name}</Text>);
+    }
+
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -14,7 +20,11 @@ export class KidsScreen extends Component {
                 >
                     <Text> Go to Buyan </Text>
                 </Button>
+                {this.renderKids()}
             </View>
         );
     }
 }
+
+const mapStateToProp = (state) => ({ kids: state.kids });
+export default connect(mapStateToProp, null)(KidsScreen);
