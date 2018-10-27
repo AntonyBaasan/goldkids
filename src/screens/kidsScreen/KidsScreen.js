@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
 import { connect } from 'react-redux';
@@ -6,7 +7,9 @@ import { connect } from 'react-redux';
 class KidsScreen extends Component {
 
     renderKids() {
-        return (<Text>{this.props.kids[0].name}</Text>);
+        return _.map(this.props.kids, (k) =>
+            <Text>{k.name}</Text>
+        );
     }
 
     render() {
