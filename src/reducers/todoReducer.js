@@ -13,9 +13,9 @@ const INITIAL_STATE = {
             },
             Saturday: {
                 task1: { title: 'Test todo 1', done: false, score: 1 },
-                // task2: { title: 'Test todo 2', done: false, score: 1 },
-                // task4: { title: 'Test todo 3', done: true, score: 1 },
-                // task5: { title: 'Test todo 4', done: true, score: 1 },
+                task2: { title: 'Test todo 2', done: false, score: 1 },
+                task4: { title: 'Test todo 3', done: true, score: 1 },
+                task5: { title: 'Test todo 4', done: true, score: 1 },
             }
         },
     },
@@ -35,13 +35,7 @@ const INITIAL_STATE = {
 
 const traverseTodoTillTodo = function (state, payload) {
     const { kidId, displayWeek, displayDayOfWeek, taskId, task, updatedPropAndValue } = payload;
-    console.log(state);
-    console.log('before');
-    console.log(task);
-    console.log(updatedPropAndValue);
     const newTask = { ...task, ...updatedPropAndValue };
-    console.log('after');
-    console.log(newTask);
     return {
         ...state,
         [kidId]: {

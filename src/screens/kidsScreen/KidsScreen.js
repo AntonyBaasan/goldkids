@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 class KidsScreen extends Component {
 
     renderKids() {
-        return _.map(this.props.kids, (k) =>
-            <View key={k.id}>
+        return _.map(this.props.kids, (k, kidId) =>
+            <View key={kidId}>
                 <Button
                     bordered
                     success

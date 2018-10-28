@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
-import { updateKidWeeklyTodos } from '../../actions/todoActions';
+import { updateKidWeeklyTodos, setKidWeeklyStat } from '../../actions';
 
 class KidsTodoList extends Component {
 
@@ -24,6 +24,13 @@ class KidsTodoList extends Component {
             taskId,
             task,
             updatedPropAndValue
+        });
+
+        const newStat = { done: 20, planned: 30 };
+        this.props.setKidWeeklyStat({
+            kidId,
+            weekId: displayWeek,
+            newStat
         });
     }
 
@@ -78,4 +85,4 @@ const mapStateToProp = (state) => {
     return {};
 };
 
-export default connect(mapStateToProp, { updateKidWeeklyTodos })(KidsTodoList);
+export default connect(mapStateToProp, { updateKidWeeklyTodos, setKidWeeklyStat })(KidsTodoList);
