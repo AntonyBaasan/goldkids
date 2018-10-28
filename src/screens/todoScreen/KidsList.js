@@ -6,7 +6,13 @@ import { selectTodoDisplayKid } from '../../actions/todoDisplayActions';
 
 class KidsList extends Component {
 
-    componentWillMount() {
+    getStatistics(kidId) {
+        const { statistics, displayWeek } = this.props;
+        if (statistics[kidId] && statistics[kidId][displayWeek]) {
+            const stat = statistics[kidId][displayWeek];
+            return `${stat.done}/${stat.planned}`;
+        }
+        return '0/0';
     }
 
     selectDisplayKid(kidId) {
@@ -14,14 +20,15 @@ class KidsList extends Component {
     }
 
     renderKids() {
+        const { displayKidId } = this.props;
         return _.map(this.props.kids, (kidInfo, kidId) => (<View key={kidId}>
-                <Button
-                    success={this.props.displayKidId === kidId}
-                    onPress={() => this.selectDisplayKid(kidId)}
-                >
-                    <Text>{kidInfo.name}</Text>
-                </Button>
-            </View>));
+            <Button
+                success={displayKidId === kidId}
+                onPress={() => this.selectDisplayKid(kidId)}
+            >
+                <Text>{kidInfo.name}-{this.getStatistics(kidId)}</Text>
+            </Button>
+        </View>));
     }
 
     render() {
@@ -34,10 +41,12 @@ class KidsList extends Component {
 }
 
 const mapStateToProp = (state) => {
-    const { displayKidId } = state.todoDisplay;
+    const { displayKidId, displayWeek } = state.todoDisplay;
     return {
         kids: state.kids,
-        displayKidId: displayKidId || Object.keys(state.kids)[0]
+        displayKidId: displayKidId || Object.keys(state.kids)[0],
+        statistics: state.statistics,
+        displayWeek
     };
 };
 

@@ -4,6 +4,7 @@ import { pageReducer } from './pageReducer';
 import { kidsReducer } from './kidsReducer';
 import { todoReducer } from './todoReducer';
 import { todoDisplayReducer } from './todoDisplayReducer';
+import { statisticsReducer } from './statisticsReducer';
 
 export default combineReducers({
     page: pageReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
     kids: kidsReducer,
     todo: todoReducer,
     todoDisplay: todoDisplayReducer,
+    statistics: statisticsReducer,
 });

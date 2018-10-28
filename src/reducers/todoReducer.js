@@ -18,8 +18,8 @@ const INITIAL_STATE = {
                     // task2: { title: 'Test todo 2', done: false, score: 1 },
                     // task4: { title: 'Test todo 3', done: true, score: 1 },
                     // task5: { title: 'Test todo 4', done: true, score: 1 },
-                },
-            }
+                }
+            },
         },
         xuuser2: {
             week1: {

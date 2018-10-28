@@ -11,18 +11,19 @@ class TodoScreen extends Component {
 
     componentWillMount() {
         this.weekdays = [
+            'Sunday',
             'Monday',
             'Tuesday',
             'Wednesday',
             'Thursday',
             'Friday',
-            'Saturday',
-            'Sunday'];
+            'Saturday'
+            ];
     }
     componentDidMount() {
         if (this.props.displayDayOfWeek == null) {
             const today = new Date();
-            this.selectWeekday(this.weekdays[today.getDay() - 1]);
+            this.selectWeekday(this.weekdays[today.getDay()]);
         }
     }
 
