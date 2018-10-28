@@ -6,9 +6,6 @@ import { updateKidWeeklyTodos } from '../../actions/todoActions';
 
 class KidsTodoList extends Component {
 
-    componentWillMount() {
-    }
-
     doneTask(taskId, task) {
         this.updateTask(taskId, task, { done: true });
     }
