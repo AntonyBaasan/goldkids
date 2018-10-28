@@ -1,36 +1,33 @@
 import { UPDATE_USER_WEEKLY_TODOS } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-    kidsTasks: {
-
-        xuuser1/* Kid Id */: {
-            week1: {
-                Monday: {
-                    todoId1: { title: 'Task1', done: true, score: 1 },
-                    todoId2: { title: 'Task2', done: true, score: 2 }
-                },
-                Tuesday: {
-                    task1: { done: true, score: 1 },
-                    task2: { done: true, score: 2 }
-                },
-                Saturday: {
-                    task1: { title: 'Test todo 1', done: false, score: 1 },
-                    // task2: { title: 'Test todo 2', done: false, score: 1 },
-                    // task4: { title: 'Test todo 3', done: true, score: 1 },
-                    // task5: { title: 'Test todo 4', done: true, score: 1 },
-                }
+    xuuser1/* Kid Id */: {
+        week1: {
+            Monday: {
+                todoId1: { title: 'Task1', done: true, score: 1 },
+                todoId2: { title: 'Task2', done: true, score: 2 }
             },
+            Tuesday: {
+                task1: { done: true, score: 1 },
+                task2: { done: true, score: 2 }
+            },
+            Saturday: {
+                task1: { title: 'Test todo 1', done: false, score: 1 },
+                // task2: { title: 'Test todo 2', done: false, score: 1 },
+                // task4: { title: 'Test todo 3', done: true, score: 1 },
+                // task5: { title: 'Test todo 4', done: true, score: 1 },
+            }
         },
-        xuuser2: {
-            week1: {
-                Monday: {
-                    task1: { done: true, score: 1 },
-                    task2: { done: true, score: 2 }
-                },
-                Tuesday: {
-                    task1: { done: true, score: 1 },
-                    task2: { done: true, score: 2 }
-                }
+    },
+    xuuser2: {
+        week1: {
+            Monday: {
+                task1: { done: true, score: 1 },
+                task2: { done: true, score: 2 }
+            },
+            Tuesday: {
+                task1: { done: true, score: 1 },
+                task2: { done: true, score: 2 }
             }
         }
     }
@@ -47,16 +44,13 @@ const traverseTodoTillTodo = function (state, payload) {
     console.log(newTask);
     return {
         ...state,
-        kidsTasks: {
-            ...state.kidsTasks,
-            [kidId]: {
-                ...state.kidsTasks[kidId],
-                [displayWeek]: {
-                    ...state.kidsTasks[kidId][displayWeek],
-                    [displayDayOfWeek]: {
-                        ...state.kidsTasks[kidId][displayWeek][displayDayOfWeek],
-                        [taskId]: newTask
-                    }
+        [kidId]: {
+            ...state[kidId],
+            [displayWeek]: {
+                ...state[kidId][displayWeek],
+                [displayDayOfWeek]: {
+                    ...state[kidId][displayWeek][displayDayOfWeek],
+                    [taskId]: newTask
                 }
             }
         }

@@ -61,14 +61,13 @@ class KidsTodoList extends Component {
 }
 
 const mapStateToProp = (state) => {
-    const { kidsTasks } = state.todo;
     const { displayKidId,
         displayWeek,
         displayDayOfWeek } = state.todoDisplay;
 
     const kidId = displayKidId || Object.keys(state.kids)[0];
     if (kidId) {
-        const todoListObject = kidsTasks[kidId][displayWeek][displayDayOfWeek];
+        const todoListObject = state.todo[kidId][displayWeek][displayDayOfWeek];
         return {
             todoListObject,
             displayWeek,

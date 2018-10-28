@@ -59,10 +59,8 @@ class TodoScreen extends Component {
 }
 
 const mapStateToProp = (state) => {
-    const { kidsTasks } = state.todo;
     const { displayDayOfWeek } = state.todoDisplay;
     return {
-        kidsTasks,
         displayDayOfWeek,
     };
 };
