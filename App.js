@@ -9,7 +9,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import reducers from './src/reducers';
 import Header from './src/components/header';
 import Counter from './src/components/Counter';
@@ -26,7 +27,7 @@ type Props = {};
 export default class App extends Component<Props> {
   renderDebug() {
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={createStore(reducers, applyMiddleware(ReduxThunk))}>
         <View style={styles.container}>
           <Header />
           <Counter />

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
-import { updateKidWeeklyTodos, setKidWeeklyStat } from '../../actions';
+import { updateTodoAndUpdateStat } from '../../actions';
 
 class KidsTodoList extends Component {
 
@@ -17,7 +17,7 @@ class KidsTodoList extends Component {
     updateTask(taskId, task, updatedPropAndValue) {
         const { kidId, displayWeek, displayDayOfWeek } = this.props;
         console.log(kidId, displayWeek, displayDayOfWeek);
-        this.props.updateKidWeeklyTodos({
+        this.props.updateTodoAndUpdateStat({
             kidId,
             displayWeek,
             displayDayOfWeek,
@@ -26,27 +26,27 @@ class KidsTodoList extends Component {
             updatedPropAndValue
         });
 
-        this.updateStat(kidId, displayWeek);
+        // this.updateStat(kidId, displayWeek);
     }
 
-    updateStat(kidId, weekId) {
-        const { todoListOfWeek } = this.props;
-        const newStat = { done: 0, planned: 0 };
-        _.forEach(todoListOfWeek, (dailyTodos) => {
-            _.forEach(dailyTodos, (todo) => {
-                if (todo.done) {
-                    newStat.done += 1;
-                }
-                newStat.planned += 1;
-            });
-        });
+    // updateStat(kidId, weekId) {
+    //     const { todoListOfWeek } = this.props;
+    //     const newStat = { done: 0, planned: 0 };
+    //     _.forEach(todoListOfWeek, (dailyTodos) => {
+    //         _.forEach(dailyTodos, (todo) => {
+    //             if (todo.done) {
+    //                 newStat.done += 1;
+    //             }
+    //             newStat.planned += 1;
+    //         });
+    //     });
 
-        this.props.setKidWeeklyStat({
-            kidId,
-            weekId,
-            newStat
-        });
-    }
+    //     this.props.setKidWeeklyStat({
+    //         kidId,
+    //         weekId,
+    //         newStat
+    //     });
+    // }
 
     renderTodoList() {
         return _.map(this.props.todoListOfDay, (task, taskId) => (
@@ -101,4 +101,4 @@ const mapStateToProp = (state) => {
     return {};
 };
 
-export default connect(mapStateToProp, { updateKidWeeklyTodos, setKidWeeklyStat })(KidsTodoList);
+export default connect(mapStateToProp, { updateTodoAndUpdateStat })(KidsTodoList);
