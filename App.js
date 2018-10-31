@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import ReduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import reducers from './src/reducers';
 import Header from './src/components/header';
 import Counter from './src/components/Counter';
@@ -24,10 +24,13 @@ const instructions = Platform.select({
 });
 
 type Props = {};
+
+const store = createStore(reducers, {}, applyMiddleware(thunk));
+
 export default class App extends Component<Props> {
   renderDebug() {
     return (
-      <Provider store={createStore(reducers, applyMiddleware(ReduxThunk))}>
+      <Provider store={store}>
         <View style={styles.container}>
           <Header />
           <Counter />
@@ -40,7 +43,7 @@ export default class App extends Component<Props> {
   }
   renderMain() {
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={store}>
         <RootScreen />
       </Provider>
     );

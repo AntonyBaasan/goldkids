@@ -17,6 +17,7 @@ class KidsTodoList extends Component {
     updateTask(taskId, task, updatedPropAndValue) {
         const { kidId, displayWeek, displayDayOfWeek } = this.props;
         console.log(kidId, displayWeek, displayDayOfWeek);
+
         this.props.updateTodoAndUpdateStat({
             kidId,
             displayWeek,
@@ -25,28 +26,7 @@ class KidsTodoList extends Component {
             task,
             updatedPropAndValue
         });
-
-        // this.updateStat(kidId, displayWeek);
     }
-
-    // updateStat(kidId, weekId) {
-    //     const { todoListOfWeek } = this.props;
-    //     const newStat = { done: 0, planned: 0 };
-    //     _.forEach(todoListOfWeek, (dailyTodos) => {
-    //         _.forEach(dailyTodos, (todo) => {
-    //             if (todo.done) {
-    //                 newStat.done += 1;
-    //             }
-    //             newStat.planned += 1;
-    //         });
-    //     });
-
-    //     this.props.setKidWeeklyStat({
-    //         kidId,
-    //         weekId,
-    //         newStat
-    //     });
-    // }
 
     renderTodoList() {
         return _.map(this.props.todoListOfDay, (task, taskId) => (
