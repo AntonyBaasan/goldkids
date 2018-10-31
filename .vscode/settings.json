@@ -8,5 +8,6 @@
         "**/ios": true,
         "**/android": true,
         "**/node_modules": true
-    }
+    },
+    "files.autoSave": "onFocusChange"
 }
