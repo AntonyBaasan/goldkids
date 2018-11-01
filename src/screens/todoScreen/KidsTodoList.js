@@ -68,8 +68,8 @@ const mapStateToProp = (state) => {
 
     const kidId = displayKidId || Object.keys(state.kids)[0];
     if (kidId) {
-        const todoListOfDay = state.todo[kidId][displayWeek][displayDayOfWeek];
-        const todoListOfWeek = state.todo[kidId][displayWeek];
+        const todoListOfDay = state.todo[displayWeek][kidId][displayDayOfWeek];
+        const todoListOfWeek = state.todo[displayWeek][kidId];
         return {
             todoListOfDay,
             todoListOfWeek,

@@ -1,33 +1,64 @@
 import { UPDATE_TODOS } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-    xuuser1/* Kid Id */: {
-        week1: {
+    week1: {
+        xuuser1:/* Kid Id */ {
             Monday: {
-                todoId1: { title: 'Task1', done: true, score: 1 },
-                todoId2: { title: 'Task2', done: true, score: 2 }
+                todoId1: { title: 'Week1 Task1 xuuser1', done: true, score: 1 },
+                todoId2: { title: 'Week1 Task2 xuuser1', done: true, score: 2 }
             },
             Tuesday: {
-                task1: { done: true, score: 1 },
-                task2: { done: true, score: 2 }
+                todoId1: { title: 'Week1 Task1 xuuser1', done: true, score: 1 },
             },
             Saturday: {
-                task1: { title: 'Test todo 1', done: false, score: 1 },
-                task2: { title: 'Test todo 2', done: false, score: 1 },
-                task4: { title: 'Test todo 3', done: true, score: 1 },
-                task5: { title: 'Test todo 4', done: true, score: 1 },
+                task1: { title: 'Week1 todo 1 xuuser1', done: false, score: 1 },
+                task2: { title: 'Week1 todo 2 xuuser1', done: false, score: 1 },
+                task4: { title: 'Week1 todo 3 xuuser1', done: true, score: 1 },
+                task5: { title: 'Week1 todo 4 xuuser1', done: true, score: 1 },
             }
         },
-    },
-    xuuser2: {
-        week1: {
+        xuuser2: {
             Monday: {
-                task1: { done: true, score: 1 },
-                task2: { done: true, score: 2 }
+                todoId1: { title: 'Week1 Task1 xuuser2', done: true, score: 1 },
             },
             Tuesday: {
-                task1: { done: true, score: 1 },
-                task2: { done: true, score: 2 }
+                todoId1: { title: 'Week1 Task1 xuuser2', done: true, score: 1 },
+                todoId2: { title: 'Week1 Task2 xuuser2', done: true, score: 1 },
+            }
+        }
+    },
+    week2: {
+        xuuser1:/* Kid Id */ {
+            Monday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+            },
+            Tuesday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+                todoId2: { title: 'Week2 task2 xuuser1', done: true, score: 1 },
+            },
+            Wednesday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+            },
+            Thursday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+            },
+            Friday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+            },
+            Saturday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+            },
+            Saturday: {
+                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
+            }
+        },
+        xuuser2: {
+            Monday: {
+                todoId1: { title: 'week2 Task1 xuuser2', done: true, score: 1 },
+            },
+            Tuesday: {
+                todoId1: { title: 'week2 Task1 xuuser2', done: true, score: 1 },
+                todoId2: { title: 'week2 Task2 xuuser2', done: true, score: 1 },
             }
         }
     }
@@ -38,10 +69,10 @@ const getNewStateAfterTraverseTodo = function (state, payload) {
     const newTask = { ...task, ...updatedPropAndValue };
     return {
         ...state,
-        [kidId]: {
-            ...state[kidId],
-            [displayWeek]: {
-                ...state[kidId][displayWeek],
+        [displayWeek]: {
+            ...state[kidId][displayWeek],
+            [kidId]: {
+                ...state[kidId],
                 [displayDayOfWeek]: {
                     ...state[kidId][displayWeek][displayDayOfWeek],
                     [taskId]: newTask

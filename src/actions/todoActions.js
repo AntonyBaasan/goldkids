@@ -48,7 +48,7 @@ export const updateTodoAndUpdateStat = (updateInfo) => {
 
         // calculate and update the week stats
         const { todo } = getState();
-        const todoListOfWeek = todo[kidId][displayWeek];
+        const todoListOfWeek = todo[displayWeek][kidId];
         const newStat = getCalculatedState(todoListOfWeek);
         dispatch(setKidWeeklyStat({
             kidId,
