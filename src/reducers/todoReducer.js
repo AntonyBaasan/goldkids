@@ -2,7 +2,7 @@ import { UPDATE_TODOS } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
     week1: {
-        xuuser1:/* Kid Id */ {
+        xuuser1: { /* Kid Id */
             Monday: {
                 todoId1: { title: 'Week1 Task1 xuuser1', done: true, score: 1 },
                 todoId2: { title: 'Week1 Task2 xuuser1', done: true, score: 2 }
@@ -28,7 +28,7 @@ const INITIAL_STATE = {
         }
     },
     week2: {
-        xuuser1:/* Kid Id */ {
+        xuuser1: { /* Kid Id */
             Monday: {
                 todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
             },
@@ -48,7 +48,7 @@ const INITIAL_STATE = {
             Saturday: {
                 todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
             },
-            Saturday: {
+            Sunday: {
                 todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
             }
         },
@@ -70,11 +70,11 @@ const getNewStateAfterTraverseTodo = function (state, payload) {
     return {
         ...state,
         [displayWeek]: {
-            ...state[kidId][displayWeek],
+            ...state[displayWeek],
             [kidId]: {
-                ...state[kidId],
+                ...state[displayWeek][kidId],
                 [displayDayOfWeek]: {
-                    ...state[kidId][displayWeek][displayDayOfWeek],
+                    ...state[displayWeek][kidId][displayDayOfWeek],
                     [taskId]: newTask
                 }
             }
