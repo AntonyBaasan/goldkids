@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
-import { selectTodoDisplayDay } from '../../actions/todoDisplayActions';
+import { selectTodoDisplayDay, selectTodoDisplayWeek } from '../../actions/todoDisplayActions';
 import KidsList from './KidsList';
 import KidsTodoList from './KidsTodoList';
 
@@ -18,7 +18,7 @@ class TodoScreen extends Component {
             'Thursday',
             'Friday',
             'Saturday'
-            ];
+        ];
     }
     componentDidMount() {
         if (this.props.displayDayOfWeek == null) {
@@ -30,6 +30,11 @@ class TodoScreen extends Component {
     selectWeekday(day) {
         console.log('day: ', day);
         this.props.selectTodoDisplayDay(day);
+    }
+
+    selectWeek(weekId) {
+        console.log('weekId: ', weekId);
+        this.props.selectTodoDisplayWeek(weekId);
     }
 
     renderWeekdays() {
@@ -47,9 +52,24 @@ class TodoScreen extends Component {
         });
     }
 
+    renderWeeks() {
+        return _.map(this.props.todoByWeek, (weekValues, weekId) => {
+            const isActive = weekId === this.props.displayWeek;
+            return (<Button
+                key={weekId}
+                bordered
+                success={isActive}
+                onPress={() => this.selectWeek(weekId)}
+            >
+                <Text>{weekId}</Text>
+            </Button>);
+        });
+    }
+
     render() {
         return (
             <View>
+                {this.renderWeeks()}
                 {this.renderWeekdays()}
                 <KidsList />
                 <KidsTodoList />
@@ -59,10 +79,12 @@ class TodoScreen extends Component {
 }
 
 const mapStateToProp = (state) => {
-    const { displayDayOfWeek } = state.todoDisplay;
+    const { displayDayOfWeek, displayWeek } = state.todoDisplay;
     return {
         displayDayOfWeek,
+        displayWeek,
+        todoByWeek: state.todo
     };
 };
 
-export default connect(mapStateToProp, { selectTodoDisplayDay })(TodoScreen);
+export default connect(mapStateToProp, { selectTodoDisplayDay, selectTodoDisplayWeek })(TodoScreen);
