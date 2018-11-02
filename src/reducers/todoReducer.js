@@ -2,6 +2,7 @@ import { UPDATE_TODOS } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
     week1: {
+        isCurrent: true,
         xuuser1: { /* Kid Id */
             Monday: {
                 todoId1: { title: 'Week1 Task1 xuuser1', done: true, score: 1 },
@@ -28,6 +29,7 @@ const INITIAL_STATE = {
         }
     },
     week2: {
+        isCurrent: false,
         xuuser1: { /* Kid Id */
             Monday: {
                 todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },

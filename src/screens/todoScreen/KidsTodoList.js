@@ -40,6 +40,7 @@ class KidsTodoList extends Component {
     renderButtons(taskId, task) {
         return (<Button
             bordered
+            disabled={!this.props.weekInfo.isCurrent}
             onPress={() => {
                 if (task.done) {
                     this.undoTask(taskId, task);
@@ -70,11 +71,13 @@ const mapStateToProp = (state) => {
     if (kidId) {
         const todoListOfDay = state.todo[displayWeek][kidId][displayDayOfWeek];
         const todoListOfWeek = state.todo[displayWeek][kidId];
+        const weekInfo = state.todo[displayWeek];
         return {
             todoListOfDay,
             todoListOfWeek,
             displayWeek,
             displayDayOfWeek,
+            weekInfo,
             kidId
         };
     }

@@ -61,7 +61,7 @@ class TodoScreen extends Component {
                 success={isActive}
                 onPress={() => this.selectWeek(weekId)}
             >
-                <Text>{weekId}</Text>
+                <Text>{weekId}{weekValues.isCurrent ? '*' : ''}</Text>
             </Button>);
         });
     }
