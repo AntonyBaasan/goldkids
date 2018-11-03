@@ -12,7 +12,7 @@ class KidsScreen extends Component {
                 <Button
                     bordered
                     success
-                    onPress={() => this.props.navigation.navigate('KidsDetails', { childId: k.id })}
+                    onPress={() => this.props.navigation.navigate('KidsEditScreen', { childId: k.id })}
                 >
                     <Text> Go to {k.name} </Text>
                 </Button>
@@ -25,10 +25,17 @@ class KidsScreen extends Component {
             <View style={{ flex: 1 }}>
                 <Text>Kids Screen 2</Text>
                 {this.renderKids()}
+                <Button
+                    onPress={() => this.props.navigation.navigate('KidsNewScreen')}
+                >
+                    <Text>Insert Child</Text>
+                </Button>
             </View>
         );
     }
 }
 
-const mapStateToProp = (state) => ({ kids: state.kids });
+const mapStateToProp = (state) => ({
+    kids: state.kids,
+});
 export default connect(mapStateToProp, null)(KidsScreen);

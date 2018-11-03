@@ -5,7 +5,7 @@ import {
     createStackNavigator,
 } from 'react-navigation';
 import TodoScreen from '../todoScreen/TodoScreen';
-import { KidsScreen, KidsDetailsScreen } from '../kidsScreen';
+import { KidsScreen, KidsEditScreen, KidsNewScreen } from '../kidsScreen';
 import PlanScreen from '../planScreen/PlanScreen';
 
 
@@ -24,7 +24,8 @@ const TodoStack = createStackNavigator({
 
 const KidsStack = createStackNavigator({
     Kids: KidsScreen,
-    KidsDetails: KidsDetailsScreen,
+    KidsEditScreen,
+    KidsNewScreen,
 });
 
 const PlanStack = createStackNavigator({
