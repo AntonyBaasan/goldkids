@@ -21,7 +21,6 @@ class KidsForm extends Component {
     };
     chooseAvatar() {
         ImagePicker.showImagePicker(this.options, (response) => {
-
             if (response.didCancel) {
                 console.log('User cancelled image picker');
             } else if (response.error) {
@@ -48,7 +47,10 @@ class KidsForm extends Component {
                     onChangeText={(text) => { this.changeName(text); }}
                     value={name}
                 />
-                <Image source={{ uri: this.props.kidsForm.avatar }} style={{ height: 100, width: 100 }} />
+                <Image
+                    source={{ uri: this.props.kidsForm.avatar }}
+                    style={{ height: 100, width: 100 }}
+                />
                 <Button
                     onPress={() => this.chooseAvatar()}
                 >

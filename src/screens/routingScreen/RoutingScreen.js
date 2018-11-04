@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Text } from 'native-base';
 
 
-export default class PlanScreen extends Component {
+export default class RoutineScreen extends Component {
     render() {
         return (
-            <Text >Plan Screen</Text>
+            <Text>Routine</Text>
         );
     }
 }

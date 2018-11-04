@@ -7,7 +7,7 @@ import {
 import NavigatorService from '../../services/NavigatorService';
 import TodoScreen from '../todoScreen/TodoScreen';
 import { KidsScreen, KidsEditScreen, KidsNewScreen } from '../kidsScreen';
-import PlanScreen from '../planScreen/PlanScreen';
+import RoutineScreen from '../routingScreen/RoutingScreen';
 
 
 export default class RootScreen extends Component {
@@ -21,7 +21,7 @@ export default class RootScreen extends Component {
 }
 
 const TodoStack = createStackNavigator({
-    Todo: TodoScreen,
+    TodoScreen,
     // Details: DetailsScreen,
 });
 
@@ -31,8 +31,8 @@ const KidsStack = createStackNavigator({
     KidsNewScreen,
 });
 
-const PlanStack = createStackNavigator({
-    Plan: PlanScreen,
+const RoutineStack = createStackNavigator({
+    RoutineScreen,
     // Details: DetailsScreen,
 });
 
@@ -40,7 +40,7 @@ const RootStack = createBottomTabNavigator(
     {
         Todo: TodoStack,
         Kids: KidsStack,
-        Plan: PlanStack,
+        Routine: RoutineStack,
     },
     {
         /* Other configuration remains unchanged */
