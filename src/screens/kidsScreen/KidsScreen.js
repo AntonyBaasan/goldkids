@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import uuid from 'uuid/v1';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
 import { connect } from 'react-redux';
@@ -7,7 +8,7 @@ import { SetKidsFormProperties } from '../../actions/index';
 class KidsScreen extends Component {
 
     generateNewId() {
-        return 'sadfas';
+        return uuid();
     }
 
     editChild(id, kid) {
