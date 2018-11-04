@@ -7,10 +7,6 @@ import { SetKidsFormProperties } from '../../actions/index';
 
 class KidsScreen extends Component {
 
-    generateNewId() {
-        return uuid();
-    }
-
     editChild(id, kid) {
         this.props.SetKidsFormProperties({ prop: 'id', value: id });
         this.props.SetKidsFormProperties({ prop: 'name', value: kid.name });
@@ -18,7 +14,7 @@ class KidsScreen extends Component {
     }
 
     addChild() {
-        this.props.SetKidsFormProperties({ prop: 'id', value: this.generateNewId() });
+        this.props.SetKidsFormProperties({ prop: 'id', value: uuid() });
         this.props.SetKidsFormProperties({ prop: 'name', value: '' });
         this.props.navigation.navigate('KidsNewScreen');
     }
