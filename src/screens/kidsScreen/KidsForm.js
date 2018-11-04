@@ -21,7 +21,6 @@ class KidsForm extends Component {
     };
     chooseAvatar() {
         ImagePicker.showImagePicker(this.options, (response) => {
-            console.log('Response = ', response);
 
             if (response.didCancel) {
                 console.log('User cancelled image picker');
