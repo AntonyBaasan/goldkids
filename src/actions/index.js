@@ -5,3 +5,4 @@ export * from './pageActions';
 export * from './statisticsActions';
 export * from './todoActions';
 export * from './todoDisplayActions';
+export * from './errorActions';

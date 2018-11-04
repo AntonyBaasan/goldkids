@@ -3,19 +3,21 @@ import uuid from 'uuid/v1';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
 import { connect } from 'react-redux';
-import { SetKidsFormProperties } from '../../actions/index';
+import { SetKidsFormProperties, ClearError } from '../../actions/index';
 
 class KidsScreen extends Component {
 
     editChild(id, kid) {
         this.props.SetKidsFormProperties({ prop: 'id', value: id });
         this.props.SetKidsFormProperties({ prop: 'name', value: kid.name });
+        this.props.ClearError();
         this.props.navigation.navigate('KidsEditScreen');
     }
 
     addChild() {
         this.props.SetKidsFormProperties({ prop: 'id', value: uuid() });
         this.props.SetKidsFormProperties({ prop: 'name', value: '' });
+        this.props.ClearError();
         this.props.navigation.navigate('KidsNewScreen');
     }
 
@@ -51,4 +53,4 @@ class KidsScreen extends Component {
 const mapStateToProp = (state) => ({
     kids: state.kids,
 });
-export default connect(mapStateToProp, { SetKidsFormProperties })(KidsScreen);
+export default connect(mapStateToProp, { SetKidsFormProperties, ClearError })(KidsScreen);

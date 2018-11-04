@@ -6,6 +6,7 @@ import { kidsFormReducer } from './kidsFormReducer';
 import { todoReducer } from './todoReducer';
 import { todoDisplayReducer } from './todoDisplayReducer';
 import { statisticsReducer } from './statisticsReducer';
+import { errorReducer } from './errorReducer';
 
 export default combineReducers({
     page: pageReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
     todo: todoReducer,
     todoDisplay: todoDisplayReducer,
     statistics: statisticsReducer,
+    error: errorReducer
 });

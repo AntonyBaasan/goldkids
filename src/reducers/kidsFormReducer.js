@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 export const kidsFormReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case KIDS_FORM_VALUE:
+        console.log(action.payload);
             return { ...state, [action.payload.prop]: action.payload.value };
         default:
             return state;

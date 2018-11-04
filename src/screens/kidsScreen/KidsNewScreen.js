@@ -3,9 +3,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 import KidsForm from './KidsForm';
+import { InsertNewKidByKidsForm } from '../../actions/index';
 
 class KidsEditScreen extends Component {
 
+    saveNew() {
+        this.props.InsertNewKidByKidsForm();
+    }
     render() {
         return (
             <View>
@@ -18,6 +22,12 @@ class KidsEditScreen extends Component {
                 >
                     <Text>Go back</Text>
                 </Button>
+                <Button
+                    bordered
+                    onPress={() => this.saveNew()}
+                >
+                    <Text>Save</Text>
+                </Button>
             </View>
         );
     }
@@ -26,4 +36,4 @@ class KidsEditScreen extends Component {
 const mapStateToProp = (state) => ({
     kidsForm: state.kidsForm
 });
-export default connect(mapStateToProp, null)(KidsEditScreen);
+export default connect(mapStateToProp, { InsertNewKidByKidsForm })(KidsEditScreen);

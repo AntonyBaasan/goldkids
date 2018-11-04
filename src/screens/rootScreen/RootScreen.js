@@ -4,6 +4,7 @@ import {
     createBottomTabNavigator,
     createStackNavigator,
 } from 'react-navigation';
+import NavigatorService from '../../services/NavigatorService';
 import TodoScreen from '../todoScreen/TodoScreen';
 import { KidsScreen, KidsEditScreen, KidsNewScreen } from '../kidsScreen';
 import PlanScreen from '../planScreen/PlanScreen';
@@ -12,7 +13,9 @@ import PlanScreen from '../planScreen/PlanScreen';
 export default class RootScreen extends Component {
     render() {
         return (
-            <RootStack />
+            <RootStack
+                ref={navigatorRef => { NavigatorService.setTopLevelNavigator(navigatorRef); }}
+            />
         );
     }
 }
@@ -23,7 +26,7 @@ const TodoStack = createStackNavigator({
 });
 
 const KidsStack = createStackNavigator({
-    Kids: KidsScreen,
+    KidsScreen,
     KidsEditScreen,
     KidsNewScreen,
 });
