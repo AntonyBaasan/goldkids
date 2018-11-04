@@ -7,6 +7,7 @@ import { todoReducer } from './todoReducer';
 import { todoDisplayReducer } from './todoDisplayReducer';
 import { statisticsReducer } from './statisticsReducer';
 import { errorReducer } from './errorReducer';
+import { routineReducer } from './routineReducer';
 
 export default combineReducers({
     page: pageReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     todo: todoReducer,
     todoDisplay: todoDisplayReducer,
     statistics: statisticsReducer,
-    error: errorReducer
+    error: errorReducer,
+    routine: routineReducer
 });
