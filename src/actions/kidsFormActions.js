@@ -1,6 +1,6 @@
-import { ADD_CHILD } from './actionTypes';
+import { KIDS_FORM_VALUE } from './actionTypes';
 
-export const AddNewKid = (child) => ({
-    type: ADD_CHILD,
-    payload: child,
+export const SetKidsFormProperties = ({ prop, value }) => ({
+    type: KIDS_FORM_VALUE,
+    payload: { prop, value },
 });

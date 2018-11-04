@@ -2,15 +2,23 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
 import { connect } from 'react-redux';
-
+import { SetKidsFormProperties } from '../../actions/index';
 
 class KidsScreen extends Component {
 
-    editChild(kidId) {
-        this.props.navigation.navigate('KidsEditScreen', { childId: kidId });
+    generateNewId() {
+        return 'sadfas';
+    }
+
+    editChild(id, kid) {
+        this.props.SetKidsFormProperties({ prop: 'id', value: id });
+        this.props.SetKidsFormProperties({ prop: 'name', value: kid.name });
+        this.props.navigation.navigate('KidsEditScreen');
     }
 
     addChild() {
+        this.props.SetKidsFormProperties({ prop: 'id', value: this.generateNewId() });
+        this.props.SetKidsFormProperties({ prop: 'name', value: '' });
         this.props.navigation.navigate('KidsNewScreen');
     }
 
@@ -20,7 +28,7 @@ class KidsScreen extends Component {
                 <Button
                     bordered
                     success
-                    onPress={() => this.editChild(k.id)}
+                    onPress={() => this.editChild(kidId, k)}
                 >
                     <Text> Go to {k.name} </Text>
                 </Button>
@@ -46,4 +54,4 @@ class KidsScreen extends Component {
 const mapStateToProp = (state) => ({
     kids: state.kids,
 });
-export default connect(mapStateToProp, null)(KidsScreen);
+export default connect(mapStateToProp, { SetKidsFormProperties })(KidsScreen);

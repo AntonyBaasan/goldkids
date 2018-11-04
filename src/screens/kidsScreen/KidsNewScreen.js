@@ -5,6 +5,7 @@ import { Text, View, Button } from 'native-base';
 import KidsForm from './KidsForm';
 
 class KidsEditScreen extends Component {
+
     render() {
         return (
             <View>
@@ -22,13 +23,7 @@ class KidsEditScreen extends Component {
     }
 }
 
-const mapStateToProp = (state) => {
-    // const mapStateToProp = (state, ownProp) => {
-    // const { navigation } = ownProp;
-    // const childId = navigation.getParam('childId');
-    return {
-        // kid: _.find(state.kids, k => k.id === childId)
-        kidsForm: state.kidsForm
-    };
-};
+const mapStateToProp = (state) => ({
+    kidsForm: state.kidsForm
+});
 export default connect(mapStateToProp, null)(KidsEditScreen);
