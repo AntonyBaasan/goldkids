@@ -10,6 +10,7 @@ class KidsScreen extends Component {
     addChild() {
         this.props.SetKidsFormProperties({ prop: 'id', value: uuid() });
         this.props.SetKidsFormProperties({ prop: 'name', value: '' });
+        this.props.SetKidsFormProperties({ prop: 'avatar', value: '' });
         this.props.ClearError();
         this.props.navigation.navigate('KidsNewScreen');
     }

@@ -10,6 +10,7 @@ class KidsList extends Component {
     editChild(id, kid) {
         this.props.SetKidsFormProperties({ prop: 'id', value: id });
         this.props.SetKidsFormProperties({ prop: 'name', value: kid.name });
+        this.props.SetKidsFormProperties({ prop: 'avatar', value: kid.avatar });
         this.props.ClearError();
         NavigatorService.navigate('KidsEditScreen');
     }
