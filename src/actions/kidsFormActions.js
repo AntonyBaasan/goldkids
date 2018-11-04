@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import NavigatorService from '../services/NavigatorService';
 import { KIDS_FORM_VALUE } from './actionTypes';
-import { AddChild, UpdateKid } from './kidsActions';
+import { AddNewKid, UpdateKid } from './kidsActions';
 import { AddError, ClearError } from './errorActions';
 
 export const SetKidsFormProperties = ({ prop, value }) => ({
@@ -38,7 +38,7 @@ export const InsertNewKidByKidsForm = () => (dispatch, getState) => {
         dispatch(AddError({ message: 'Id already exists' }));
     } else {
         dispatch(ClearError());
-        dispatch(AddChild(kidsForm));
+        dispatch(AddNewKid(kidsForm));
         NavigatorService.navigate('KidsScreen');
     }
 };

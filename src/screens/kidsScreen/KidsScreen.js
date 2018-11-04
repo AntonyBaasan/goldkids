@@ -1,18 +1,11 @@
-import _ from 'lodash';
 import uuid from 'uuid/v1';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
 import { connect } from 'react-redux';
 import { SetKidsFormProperties, ClearError } from '../../actions/index';
+import KidsList from './KidsList';
 
 class KidsScreen extends Component {
-
-    editChild(id, kid) {
-        this.props.SetKidsFormProperties({ prop: 'id', value: id });
-        this.props.SetKidsFormProperties({ prop: 'name', value: kid.name });
-        this.props.ClearError();
-        this.props.navigation.navigate('KidsEditScreen');
-    }
 
     addChild() {
         this.props.SetKidsFormProperties({ prop: 'id', value: uuid() });
@@ -21,29 +14,15 @@ class KidsScreen extends Component {
         this.props.navigation.navigate('KidsNewScreen');
     }
 
-    renderKids() {
-        return _.map(this.props.kids, (k, kidId) =>
-            <View key={kidId}>
-                <Button
-                    bordered
-                    success
-                    onPress={() => this.editChild(kidId, k)}
-                >
-                    <Text> Go to {k.name} </Text>
-                </Button>
-            </View>
-        );
-    }
-
     render() {
         return (
             <View style={{ flex: 1 }}>
                 <Text>Kids Screen 2</Text>
-                {this.renderKids()}
+                <KidsList />
                 <Button
                     onPress={() => this.addChild()}
                 >
-                    <Text>Insert Child</Text>
+                    <Text>Add New</Text>
                 </Button>
             </View>
         );

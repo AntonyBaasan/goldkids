@@ -17,16 +17,9 @@ class KidsEditScreen extends Component {
                 <KidsForm />
                 <Button
                     bordered
-                    success
-                    onPress={() => this.props.navigation.goBack()}
-                >
-                    <Text>Go back</Text>
-                </Button>
-                <Button
-                    bordered
                     onPress={() => this.saveNew()}
                 >
-                    <Text>Save</Text>
+                    <Text>Add</Text>
                 </Button>
             </View>
         );
