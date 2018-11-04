@@ -3,7 +3,7 @@ import { KIDS_FORM_VALUE } from '../actions/actionTypes';
 const INITIAL_STATE = {
     id: 'child1',
     name: 'name',
-    picture: '',
+    avatar: '',
 };
 
 export const kidsFormReducer = (state = INITIAL_STATE, action) => {

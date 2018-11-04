@@ -19,7 +19,7 @@ class KidsList extends Component {
         return _.map(this.props.kids, (kid, kidId) =>
             <CardItem key={kidId}>
                 <Left>
-                    <Thumbnail source={{ uri: 'Image URL' }} />
+                    <Thumbnail source={{ uri: kid.avatar }} />
                     <Body>
                         <Text>{kid.name}</Text>
                         <Text note>stat</Text>
