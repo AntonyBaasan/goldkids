@@ -14,13 +14,5 @@ class KidsForm extends Component {
     }
 }
 
-const mapStateToProp = (state) => {
-    // const mapStateToProp = (state, ownProp) => {
-    // const { navigation } = ownProp;
-    // const childId = navigation.getParam('childId');
-    return {
-        // kid: _.find(state.kids, k => k.id === childId)
-        kidsForm: state.kidsForm
-    };
-};
+const mapStateToProp = (state) => ({ kidsForm: state.kidsForm });
 export default connect(mapStateToProp, null)(KidsForm);

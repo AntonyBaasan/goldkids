@@ -6,13 +6,21 @@ import { connect } from 'react-redux';
 
 class KidsScreen extends Component {
 
+    editChild(kidId) {
+        this.props.navigation.navigate('KidsEditScreen', { childId: kidId });
+    }
+
+    addChild() {
+        this.props.navigation.navigate('KidsNewScreen');
+    }
+
     renderKids() {
         return _.map(this.props.kids, (k, kidId) =>
             <View key={kidId}>
                 <Button
                     bordered
                     success
-                    onPress={() => this.props.navigation.navigate('KidsEditScreen', { childId: k.id })}
+                    onPress={() => this.editChild(k.id)}
                 >
                     <Text> Go to {k.name} </Text>
                 </Button>
@@ -26,7 +34,7 @@ class KidsScreen extends Component {
                 <Text>Kids Screen 2</Text>
                 {this.renderKids()}
                 <Button
-                    onPress={() => this.props.navigation.navigate('KidsNewScreen')}
+                    onPress={() => this.addChild()}
                 >
                     <Text>Insert Child</Text>
                 </Button>

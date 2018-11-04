@@ -2,13 +2,14 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
+import KidsForm from './KidsForm';
 
 class KidsNewScreen extends Component {
     render() {
         return (
             <View>
-                <Text >{this.props.kidsForm.id}</Text>
-                <Text >{this.props.kidsForm.name}</Text>
+                <Text >Edit child</Text>
+                <KidsForm />
                 <Button
                     bordered
                     success
@@ -22,7 +23,7 @@ class KidsNewScreen extends Component {
 }
 
 const mapStateToProp = (state) => {
-// const mapStateToProp = (state, ownProp) => {
+    // const mapStateToProp = (state, ownProp) => {
     // const { navigation } = ownProp;
     // const childId = navigation.getParam('childId');
     return {
