@@ -2,13 +2,13 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'native-base';
-
+import RoutineItem from './RoutineItem';
 
 class RoutineScreen extends Component {
     renderTasks() {
         const { routine } = this.props;
         console.log(routine);
-        return _.map(routine, (task, taskId) => <Text key={taskId}>{task.title}</Text>);
+        return _.map(routine, (task, taskId) => <RoutineItem key={taskId} task={task} />);
     }
 
     render() {

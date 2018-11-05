@@ -4,24 +4,14 @@ import { connect } from 'react-redux';
 import { View, Text } from 'native-base';
 
 
-class RoutineScreen extends Component {
-    renderTasks() {
-        const { routine } = this.props;
-        console.log(routine);
-        return _.map(routine, (task, taskId) => <Text key={taskId}>{task.title}</Text>);
-    }
+class RoutineItem extends Component {
 
     render() {
+        const { task } = this.props;
         return (
-            <View>
-                {this.renderTasks()}
-            </View>
+            <Text> {task.title}</Text>
         );
     }
 }
 
-const mapStateToProp = (state) => ({
-    routine: state.routine
-});
-
-export default connect(mapStateToProp, null)(RoutineScreen);
+export default connect(null, null)(RoutineItem);
