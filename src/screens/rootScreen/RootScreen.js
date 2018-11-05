@@ -7,7 +7,7 @@ import {
 import NavigatorService from '../../services/NavigatorService';
 import TodoScreen from '../todoScreen/TodoScreen';
 import { KidsScreen, KidsEditScreen, KidsNewScreen } from '../kidsScreen';
-import RoutineScreen from '../routingScreen/RoutingScreen';
+import RoutineScreen from '../routineScreen/RoutineScreen';
 
 
 export default class RootScreen extends Component {
