@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Text, View } from 'native-base';
-import { SetTaskFormProperties } from '../../actions/index';
+import { SetTaskFormProperties } from '../../actions';
 
 class TaskForm extends Component {
     changeTitle(text) {

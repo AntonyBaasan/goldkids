@@ -1,12 +1,19 @@
 import _ from 'lodash';
+import uuid from 'uuid/v1';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Button, Text } from 'native-base';
 import RoutineItem from './RoutineItem';
+import { SetTaskFormProperties, ClearError } from '../../actions';
 
 class RoutineScreen extends Component {
     addNewTask() {
-        this.props.navigation.navigate('TaskEditScreen');
+        this.props.SetTaskFormProperties({ prop: 'id', value: uuid() });
+        this.props.SetTaskFormProperties({ prop: 'title', value: '' });
+        this.props.SetTaskFormProperties({ prop: 'days', value: [] });
+        this.props.SetTaskFormProperties({ prop: 'assigned', value: [] });
+        this.props.ClearError();
+        this.props.navigation.navigate('TaskNewScreen');
     }
     renderTasks() {
         const { routine } = this.props;
@@ -38,4 +45,4 @@ const mapStateToProp = (state) => ({
     routine: state.routine
 });
 
-export default connect(mapStateToProp, null)(RoutineScreen);
+export default connect(mapStateToProp, { SetTaskFormProperties, ClearError })(RoutineScreen);

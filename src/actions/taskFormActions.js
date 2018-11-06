@@ -21,7 +21,7 @@ export const UpdateTaskByTaskForm = () => (dispatch, getState) => {
         dispatch(AddError({ message: 'Id doesn\'t exist' }));
     } else {
         dispatch(ClearError());
-        dispatch(UpdateKid(taskForm));
+        // dispatch(UpdateKid(taskForm));
         NavigatorService.navigate('RoutineScreen');
     }
 };
@@ -30,7 +30,7 @@ export const UpdateTaskByTaskForm = () => (dispatch, getState) => {
 export const InsertNewTaskByTaskForm = () => (dispatch, getState) => {
     const { taskForm, kids } = getState();
 
-    if (!taskForm.name) {
+    if (!taskForm.title) {
         dispatch(AddError({ message: 'Name is empty!' }));
     } else if (!taskForm.id) {
         dispatch(AddError({ message: 'Id can\'t be empty!' }));
@@ -38,7 +38,7 @@ export const InsertNewTaskByTaskForm = () => (dispatch, getState) => {
         dispatch(AddError({ message: 'Id already exists' }));
     } else {
         dispatch(ClearError());
-        dispatch(AddNewKid(taskForm));
+        // dispatch(AddNewKid(taskForm));
         NavigatorService.navigate('RoutineScreen');
     }
 };

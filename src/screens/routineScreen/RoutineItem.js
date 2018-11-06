@@ -2,12 +2,19 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, Button } from 'native-base';
+import NavigatorService from '../../services/NavigatorService';
+import { SetTaskFormProperties, ClearError } from '../../actions';
 
 
 class RoutineItem extends Component {
 
-    edit(task) {
-
+    edit(id, task) {
+        this.props.SetTaskFormProperties({ prop: 'id', value: id });
+        this.props.SetTaskFormProperties({ prop: 'title', value: task.title });
+        this.props.SetTaskFormProperties({ prop: 'days', value: task.days });
+        this.props.SetTaskFormProperties({ prop: 'assigned', value: task.assigned });
+        this.props.ClearError();
+        NavigatorService.navigate('TaskEditScreen');
     }
     remove(task) {
 
@@ -21,7 +28,7 @@ class RoutineItem extends Component {
                 <Button
                     bordered
                     success
-                    onPress={() => this.edit(task)}
+                    onPress={() => this.edit(id, task)}
                 >
                     <Text>Edit</Text>
                 </Button>
@@ -38,4 +45,4 @@ class RoutineItem extends Component {
     }
 }
 
-export default connect(null, null)(RoutineItem);
+export default connect(null, { SetTaskFormProperties, ClearError })(RoutineItem);
