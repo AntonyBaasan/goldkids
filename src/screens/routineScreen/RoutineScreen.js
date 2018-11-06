@@ -6,7 +6,7 @@ import RoutineItem from './RoutineItem';
 
 class RoutineScreen extends Component {
     addNewTask() {
-
+        this.props.navigation.navigate('TaskEditScreen');
     }
     renderTasks() {
         const { routine } = this.props;
