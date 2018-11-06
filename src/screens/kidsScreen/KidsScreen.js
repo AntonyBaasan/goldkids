@@ -23,7 +23,7 @@ class KidsScreen extends Component {
                 <Button
                     onPress={() => this.addChild()}
                 >
-                    <Text>Add New</Text>
+                    <Text>New</Text>
                 </Button>
             </View>
         );

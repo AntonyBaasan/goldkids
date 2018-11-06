@@ -27,7 +27,7 @@ class RoutineScreen extends Component {
                 <Button
                     onPress={() => this.addNewTask()}
                 >
-                    <Text>Add New</Text>
+                    <Text>New</Text>
                 </Button>
             </View>
         );
