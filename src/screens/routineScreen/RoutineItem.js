@@ -5,19 +5,21 @@ import { View, Text, Button } from 'native-base';
 import NavigatorService from '../../services/NavigatorService';
 import { SetTaskFormProperties, ClearError } from '../../actions';
 
-
 class RoutineItem extends Component {
 
     edit(id, task) {
-        this.props.SetTaskFormProperties({ prop: 'id', value: id });
-        this.props.SetTaskFormProperties({ prop: 'title', value: task.title });
-        this.props.SetTaskFormProperties({ prop: 'days', value: task.days });
-        this.props.SetTaskFormProperties({ prop: 'assigned', value: task.assigned });
+        _.map({
+            'id': id,
+            'title': task.title,
+            'days': task.days,
+            'assigned': task.assigned,
+        }, (value, key) => { this.props.SetTaskFormProperties({ prop: key, value: value }) });
+
         this.props.ClearError();
         NavigatorService.navigate('TaskEditScreen');
     }
-    remove(task) {
 
+    remove(task) {
     }
 
     render() {

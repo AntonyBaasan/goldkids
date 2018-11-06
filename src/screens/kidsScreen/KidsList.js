@@ -8,9 +8,12 @@ import { SetKidsFormProperties, ClearError } from '../../actions/index';
 class KidsList extends Component {
 
     editChild(id, kid) {
-        this.props.SetKidsFormProperties({ prop: 'id', value: id });
-        this.props.SetKidsFormProperties({ prop: 'name', value: kid.name });
-        this.props.SetKidsFormProperties({ prop: 'avatar', value: kid.avatar });
+        _.map({
+            'id': id,
+            'name': kid.name,
+            'avatar': kid.avatar,
+        }, (value, key) => { this.props.SetKidsFormProperties({ prop: key, value: value }) });
+
         this.props.ClearError();
         NavigatorService.navigate('KidsEditScreen');
     }

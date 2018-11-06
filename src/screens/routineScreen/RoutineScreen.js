@@ -8,10 +8,12 @@ import { SetTaskFormProperties, ClearError } from '../../actions';
 
 class RoutineScreen extends Component {
     addNewTask() {
-        this.props.SetTaskFormProperties({ prop: 'id', value: uuid() });
-        this.props.SetTaskFormProperties({ prop: 'title', value: '' });
-        this.props.SetTaskFormProperties({ prop: 'days', value: [] });
-        this.props.SetTaskFormProperties({ prop: 'assigned', value: [] });
+        _.map({
+            'id': uuid(),
+            'title': '',
+            'days': [],
+            'assigned': [],
+        }, (value, key) => { this.props.SetTaskFormProperties({ prop: key, value: value }) });
         this.props.ClearError();
         this.props.navigation.navigate('TaskNewScreen');
     }
