@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
+import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Text, View } from 'native-base';
-import { SetKidsFormProperties } from '../../actions/index';
+import { SetTaskFormProperties } from '../../actions/index';
 
 class TaskForm extends Component {
-    changeName(text) {
-        this.props.SetKidsFormProperties({ prop: 'title', value: text });
+    changeTitle(text) {
+        this.props.SetTaskFormProperties({ prop: 'title', value: text });
     }
     changeId(id) {
-        this.props.SetKidsFormProperties({ prop: 'id', value: id });
+        this.props.SetTaskFormProperties({ prop: 'id', value: id });
     }
     render() {
+        const { taskForm } = this.props;
         return (
             <View>
+                <TextInput
+                    onChangeText={this.changeId.bind(this)}
+                    value={taskForm.id}
+                />
+                <TextInput
+                    onChangeText={this.changeTitle.bind(this)}
+                    value={taskForm.title}
+                />
                 <Text>{this.props.errorMessage}</Text>
             </View>
         );
@@ -20,5 +30,7 @@ class TaskForm extends Component {
 }
 
 const mapStateToProp = (state) => ({
+    taskForm: state.taskForm,
+    errorMessage: state.error ? state.error.message : ''
 });
-export default connect(mapStateToProp, { SetKidsFormProperties })(TaskForm);
+export default connect(mapStateToProp, { SetTaskFormProperties })(TaskForm);

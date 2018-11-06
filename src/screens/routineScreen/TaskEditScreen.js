@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 import TaskForm from './TaskForm';
+import { UpdateTaskByTaskForm } from '../../actions'
 
 class TaskEditScreen extends Component {
 
     save() {
-        this.props.UpdateKidByKidsForm();
+        this.props.UpdateTaskByTaskForm();
     }
 
     render() {
@@ -27,4 +28,4 @@ class TaskEditScreen extends Component {
 
 const mapStateToProp = (state) => ({
 });
-export default connect(mapStateToProp, null)(TaskEditScreen);
+export default connect(mapStateToProp, { UpdateTaskByTaskForm })(TaskEditScreen);
