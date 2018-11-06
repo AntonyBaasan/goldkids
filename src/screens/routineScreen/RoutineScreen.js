@@ -1,20 +1,34 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'native-base';
+import { View, Button, Text } from 'native-base';
 import RoutineItem from './RoutineItem';
 
 class RoutineScreen extends Component {
+    addNewTask() {
+
+    }
     renderTasks() {
         const { routine } = this.props;
         console.log(routine);
-        return _.map(routine, (task, taskId) => <RoutineItem key={taskId} task={task} />);
+        return _.map(routine, (task, taskId) =>
+            <RoutineItem
+                key={taskId}
+                task={task}
+                id={taskId}
+            />
+        );
     }
 
     render() {
         return (
             <View>
                 {this.renderTasks()}
+                <Button
+                    onPress={() => this.addNewTask()}
+                >
+                    <Text>Add New</Text>
+                </Button>
             </View>
         );
     }

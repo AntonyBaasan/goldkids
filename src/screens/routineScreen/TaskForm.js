@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import ImagePicker from 'react-native-image-picker';
-import { TextInput, Image } from 'react-native';
+import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { Text, View, Button } from 'native-base';
+import { Text, View } from 'native-base';
 import { SetKidsFormProperties } from '../../actions/index';
 
 class TaskForm extends Component {

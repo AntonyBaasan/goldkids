@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 import TaskForm from './TaskForm';
 
-class EditTaskScreen extends Component {
+class TaskEditScreen extends Component {
 
     save() {
         this.props.UpdateKidByKidsForm();
@@ -28,4 +28,4 @@ class EditTaskScreen extends Component {
 
 const mapStateToProp = (state) => ({
 });
-export default connect(mapStateToProp, null)(EditTaskScreen);
+export default connect(mapStateToProp, null)(TaskEditScreen);

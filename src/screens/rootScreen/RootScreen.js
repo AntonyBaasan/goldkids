@@ -7,7 +7,7 @@ import {
 import NavigatorService from '../../services/NavigatorService';
 import TodoScreen from '../todoScreen/TodoScreen';
 import { KidsScreen, KidsEditScreen, KidsNewScreen } from '../kidsScreen';
-import RoutineScreen from '../routineScreen/RoutineScreen';
+import { RoutineScreen, TaskEditScreen } from '../routineScreen/RoutineScreen';
 
 
 export default class RootScreen extends Component {
@@ -33,7 +33,7 @@ const KidsStack = createStackNavigator({
 
 const RoutineStack = createStackNavigator({
     RoutineScreen,
-    // Details: DetailsScreen,
+    TaskEditScreen,
 });
 
 const RootStack = createBottomTabNavigator(
