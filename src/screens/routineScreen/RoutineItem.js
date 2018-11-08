@@ -9,11 +9,11 @@ class RoutineItem extends Component {
 
     edit(id, task) {
         _.map({
-            'id': id,
-            'title': task.title,
-            'days': task.days,
-            'assigned': task.assigned,
-        }, (value, key) => { this.props.SetTaskFormProperties({ prop: key, value: value }) });
+            id,
+            title: task.title,
+            days: task.days,
+            assigned: task.assigned,
+        }, (value, key) => { this.props.SetTaskFormProperties({ prop: key, value }); });
 
         this.props.ClearError();
         NavigatorService.navigate('TaskEditScreen');

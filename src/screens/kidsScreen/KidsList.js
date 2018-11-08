@@ -9,10 +9,10 @@ class KidsList extends Component {
 
     editChild(id, kid) {
         _.map({
-            'id': id,
-            'name': kid.name,
-            'avatar': kid.avatar,
-        }, (value, key) => { this.props.SetKidsFormProperties({ prop: key, value: value }) });
+            id,
+            name: kid.name,
+            avatar: kid.avatar,
+        }, (value, key) => { this.props.SetKidsFormProperties({ prop: key, value }); });
 
         this.props.ClearError();
         NavigatorService.navigate('KidsEditScreen');

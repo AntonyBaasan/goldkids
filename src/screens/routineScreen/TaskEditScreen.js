@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 import TaskForm from './TaskForm';
-import { UpdateTaskByTaskForm } from '../../actions'
+import { UpdateTaskByTaskForm } from '../../actions';
 
 class TaskEditScreen extends Component {
 

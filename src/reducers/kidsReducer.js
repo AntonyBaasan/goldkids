@@ -14,7 +14,7 @@ const INITIAL_STATE = {
 export const kidsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_KID:
-            return state;
+            return { ...state, [action.payload.id]: action.payload };
         case UPDATE_KID:
             return { ...state, [action.payload.id]: action.payload };
         default:

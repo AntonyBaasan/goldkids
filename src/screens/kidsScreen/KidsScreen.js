@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import uuid from 'uuid/v1';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'native-base';
@@ -9,10 +10,10 @@ class KidsScreen extends Component {
 
     addChild() {
         _.map({
-            'id': uuid(),
-            'name': '',
-            'avatar': '',
-        }, (value, key) => { this.props.SetKidsFormProperties({ prop: key, value: value }) });
+            id: uuid(),
+            name: '',
+            avatar: '',
+        }, (value, key) => { this.props.SetKidsFormProperties({ prop: key, value }); });
         this.props.ClearError();
         this.props.navigation.navigate('KidsNewScreen');
     }
