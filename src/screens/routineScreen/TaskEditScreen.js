@@ -26,6 +26,4 @@ class TaskEditScreen extends Component {
     }
 }
 
-const mapStateToProp = (state) => ({
-});
-export default connect(mapStateToProp, { UpdateTaskByTaskForm })(TaskEditScreen);
+export default connect(null, { UpdateTaskByTaskForm })(TaskEditScreen);

@@ -26,6 +26,4 @@ class TaskNewScreen extends Component {
     }
 }
 
-const mapStateToProp = (state) => ({
-});
-export default connect(mapStateToProp, { InsertNewTaskByTaskForm })(TaskNewScreen);
+export default connect(null, { InsertNewTaskByTaskForm })(TaskNewScreen);

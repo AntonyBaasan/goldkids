@@ -19,7 +19,7 @@ class RoutineItem extends Component {
         NavigatorService.navigate('TaskEditScreen');
     }
 
-    remove(task) {
+    remove() {
     }
 
     render() {
