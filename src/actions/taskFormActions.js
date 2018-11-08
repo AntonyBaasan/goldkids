@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import NavigatorService from '../services/NavigatorService';
 import { TASK_FORM_SET_PROPERTY } from './actionTypes';
-import { AddNewKid, UpdateKid } from './kidsActions';
+import { AddNewTaskToRoutine, UpdateTaskOnRoutine } from './routineActions';
 import { AddError, ClearError } from './errorActions';
 
 export const SetTaskFormProperties = ({ prop, value }) => ({
@@ -11,34 +11,34 @@ export const SetTaskFormProperties = ({ prop, value }) => ({
 
 // Save Kids form to Kids state
 export const UpdateTaskByTaskForm = () => (dispatch, getState) => {
-    const { taskForm, kids } = getState();
+    const { taskForm, routine } = getState();
 
     if (!taskForm.title) {
         dispatch(AddError({ message: 'Title is empty!' }));
     } else if (!taskForm.id) {
         dispatch(AddError({ message: 'Id can\'t be empty!' }));
-    } else if (!_.get(kids, taskForm.id)) {
+    } else if (!_.get(routine, taskForm.id)) {
         dispatch(AddError({ message: 'Id doesn\'t exist' }));
     } else {
         dispatch(ClearError());
-        // dispatch(UpdateKid(taskForm));
+        dispatch(UpdateTaskOnRoutine(taskForm));
         NavigatorService.navigate('RoutineScreen');
     }
 };
 
 // Save Kids form to Kids state
 export const InsertNewTaskByTaskForm = () => (dispatch, getState) => {
-    const { taskForm, kids } = getState();
+    const { taskForm, routine } = getState();
 
     if (!taskForm.title) {
         dispatch(AddError({ message: 'Name is empty!' }));
     } else if (!taskForm.id) {
         dispatch(AddError({ message: 'Id can\'t be empty!' }));
-    } else if (_.get(kids, taskForm.id)) {
+    } else if (_.get(routine, taskForm.id)) {
         dispatch(AddError({ message: 'Id already exists' }));
     } else {
         dispatch(ClearError());
-        // dispatch(AddNewKid(taskForm));
+        dispatch(AddNewTaskToRoutine(taskForm));
         NavigatorService.navigate('RoutineScreen');
     }
 };

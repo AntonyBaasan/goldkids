@@ -1,4 +1,4 @@
-// import { UPDATE_TODOS } from '../actions/actionTypes';
+import { ADD_TASK_TO_ROUTINE, UPDATE_TASK_ON_ROUTINE } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
     todoId1: {
@@ -38,6 +38,10 @@ const INITIAL_STATE = {
 
 export const routineReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case ADD_TASK_TO_ROUTINE:
+            return { ...state, [action.payload.id]: action.payload };
+        case UPDATE_TASK_ON_ROUTINE:
+            return { ...state, [action.payload.id]: action.payload };
         default:
             return state;
     }
