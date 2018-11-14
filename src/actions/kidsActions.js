@@ -1,11 +1,11 @@
 import { ADD_KID, UPDATE_KID } from './actionTypes';
 
-export const AddNewKid = (kid) => ({
+export const addNewKid = (kid) => ({
     type: ADD_KID,
     payload: kid,
 });
 
-export const UpdateKid = (kid) => ({
+export const updateKid = (kid) => ({
     type: UPDATE_KID,
     payload: kid,
 });

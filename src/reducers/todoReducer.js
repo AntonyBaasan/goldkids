@@ -15,20 +15,13 @@ const INITIAL_STATE = {
     }
 };
 
-const getNewStateAfterTraverseTodo = function (state, payload) {
-    const { kidId, displayWeek, displayDayOfWeek, taskId, task, updatedPropAndValue } = payload;
-    const newTask = { ...task, ...updatedPropAndValue };
+const updateProp = function (state, payload) {
+    const { todoId, prop, value } = payload;
     return {
         ...state,
-        [displayWeek]: {
-            ...state[displayWeek],
-            [kidId]: {
-                ...state[displayWeek][kidId],
-                [displayDayOfWeek]: {
-                    ...state[displayWeek][kidId][displayDayOfWeek],
-                    [taskId]: newTask
-                }
-            }
+        [todoId]: {
+            ...state[todoId],
+            [prop]: value
         }
     };
 };
@@ -38,7 +31,7 @@ export const todoReducer = (state = INITIAL_STATE, action) => {
         case UPDATE_TODOS:
             // update current user
             console.log(action.payload);
-            return getNewStateAfterTraverseTodo(state, action.payload);
+            return updateProp(state, action.payload);
         default:
             return state;
     }

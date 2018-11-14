@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import NavigatorService from '../services/NavigatorService';
 import { KIDS_FORM_VALUE } from './actionTypes';
-import { AddNewKid, UpdateKid } from './kidsActions';
+import { addNewKid, updateKid } from './kidsActions';
 import { AddError, ClearError } from './errorActions';
 
 export const SetKidsFormProperties = ({ prop, value }) => ({
@@ -10,7 +10,7 @@ export const SetKidsFormProperties = ({ prop, value }) => ({
 });
 
 // Save Kids form to Kids state
-export const UpdateKidByKidsForm = () => (dispatch, getState) => {
+export const updateKidByKidsForm = () => (dispatch, getState) => {
     const { kidsForm, kids } = getState();
 
     if (!kidsForm.name) {
@@ -21,7 +21,7 @@ export const UpdateKidByKidsForm = () => (dispatch, getState) => {
         dispatch(AddError({ message: 'Id doesn\'t exist' }));
     } else {
         dispatch(ClearError());
-        dispatch(UpdateKid(kidsForm));
+        dispatch(updateKid(kidsForm));
         NavigatorService.navigate('KidsScreen');
     }
 };

@@ -5,6 +5,7 @@ export const MOVE_TO_PAGE = 'MOVE_TO_PAGE';
 
 export const ADD_KID = 'ADD_KID';
 export const UPDATE_KID = 'UPDATE_KID';
+export const INCREMENT_KID_COINS = 'INCREMENT_KID_COINS';
 
 export const TODO_DISPLAY_SELECT_KID = 'TODO_DISPLAY_SELECT_KID';
 

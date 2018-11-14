@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
 import KidsForm from './KidsForm';
-import { UpdateKidByKidsForm } from '../../actions/index';
+import { updateKidByKidsForm } from '../../actions/index';
 
 class KidsNewScreen extends Component {
 
     save() {
-        this.props.UpdateKidByKidsForm();
+        this.props.updateKidByKidsForm();
     }
 
     render() {
@@ -29,4 +29,4 @@ class KidsNewScreen extends Component {
 const mapStateToProp = (state) => ({
     kidsForm: state.kidsForm
 });
-export default connect(mapStateToProp, { UpdateKidByKidsForm })(KidsNewScreen);
+export default connect(mapStateToProp, { updateKidByKidsForm })(KidsNewScreen);

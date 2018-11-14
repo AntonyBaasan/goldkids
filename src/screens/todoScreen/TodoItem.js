@@ -2,64 +2,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button } from 'native-base';
-import { updateTodoAndUpdateStat } from '../../actions';
+import { updateTodoStatus } from '../../actions';
 
 class TodoItem extends Component {
 
-    // doneTask(taskId, task) {
-    //     this.updateTask(taskId, task, { done: true });
-    // }
-
-    // undoTask(taskId, task) {
-    //     this.updateTask(taskId, task, { done: false });
-    // }
-
-    // updateTask(taskId, task, updatedPropAndValue) {
-    //     const { kidId, displayWeek, displayDayOfWeek } = this.props;
-    //     console.log(kidId, displayWeek, displayDayOfWeek);
-
-    //     this.props.updateTodoAndUpdateStat({
-    //         kidId,
-    //         displayWeek,
-    //         displayDayOfWeek,
-    //         taskId,
-    //         task,
-    //         updatedPropAndValue
-    //     });
-    // }
+    doneTask(todoId) {
+        this.props.updateTodoStatus({ todoId, newStatus: 'waiting' });
+    }
 
     renderButtons(todoId, todo) {
+        if (todo.status === 'new') {
+            return this.renderDoneButton(todoId, todo);
+        } else if (todo.status === 'waiting') {
+            return this.renderWaitingButton();
+        }
+    }
+
+    renderDoneButton(todoId, todo) {
         return (<Button
             bordered
             onPress={() => {
-                // if (todo.status === '') {
-                //     this.undoTask(taskId, task);
-                // } else {
-                //     this.doneTask(taskId, task);
-                // }
+                this.doneTask(todoId, todo);
             }}
         >
-            <Text>{todo.status}</Text>
+            <Text>Done</Text>
         </Button>);
     }
+
+    renderWaitingButton() {
+        return (<Button
+            bordered
+            disabled
+        >
+            <Text>Waiting</Text>
+        </Button>);
+    }
+
 
     render() {
         const { todo, todoId, task } = this.props;
         return (
             <View >
-                 <Text>{todoId}::{task.title}</Text>
-                 {this.renderButtons(todoId, todo)}
-             </View>
+                <Text>{todoId}::{task.title}</Text>
+                {this.renderButtons(todoId, todo)}
+            </View>
         );
     }
 }
 
 const mapStateToProp = (state, ownProps) => {
     const task = state.tasks[ownProps.todo.refTaskId];
-    console.log(task);
     return {
         task
     };
 };
 
-export default connect(mapStateToProp, { updateTodoAndUpdateStat })(TodoItem);
+export default connect(mapStateToProp, { updateTodoStatus })(TodoItem);

@@ -6,15 +6,6 @@ import { selectTodoDisplayKid } from '../../actions/todoDisplayActions';
 
 class KidsList extends Component {
 
-    getStatistics(kidId) {
-        const { statistics, displayWeek } = this.props;
-        if (statistics[kidId] && statistics[kidId][displayWeek]) {
-            const stat = statistics[kidId][displayWeek];
-            return `${stat.done}/${stat.planned}`;
-        }
-        return '0/0';
-    }
-
     selectDisplayKid(kidId) {
         this.props.selectTodoDisplayKid(kidId);
     }
@@ -26,7 +17,7 @@ class KidsList extends Component {
                 success={displayKidId === kidId}
                 onPress={() => this.selectDisplayKid(kidId)}
             >
-                <Text>{kidInfo.name}-{this.getStatistics(kidId)}</Text>
+                <Text>{kidInfo.name}-{kidInfo.coins}</Text>
             </Button>
         </View>));
     }

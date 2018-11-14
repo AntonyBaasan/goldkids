@@ -1,59 +1,26 @@
-import _ from 'lodash';
 import { UPDATE_TODOS } from './actionTypes';
-import { setKidWeeklyStat } from './statisticsActions';
+import { updateKid } from './kidsActions';
 
-/**
- * In order to udpate a Todo object 
- * need to send information related to hierarchy
- * 
- * param format:
- * updateInfo = {
- *   kidId,
- *   displayWeek,
- *   displayDayOfWeek,
- *   taskId,
- *   task,
- *   updatedPropAndValue
- *}
- */
-// 
-export const updateTodo = (updateInfo) => ({
+export const updateTodo = ({ todoId, prop, value }) => ({
     type: UPDATE_TODOS,
-    payload: updateInfo,
+    payload: { todoId, prop, value },
 });
-
-// go through daily stats, aggregate results and return as new object
-const getCalculatedState = (todoListOfWeek) => {
-    const newStat = { done: 0, planned: 0 };
-    _.forEach(todoListOfWeek, (dailyTodos) => {
-        _.forEach(dailyTodos, (todo) => {
-            if (todo.done) {
-                newStat.done += 1;
-            }
-            newStat.planned += 1;
-        });
-    });
-    return newStat;
-};
 
 /**
  * 1. update a todo object
  * 2. update weekly stats
  */
-export const updateTodoAndUpdateStat = (updateInfo) => {
-    const { kidId, displayWeek } = updateInfo;
-
+export const updateTodoStatus = ({ todoId, newStatus }) => {
     return (dispatch, getState) => {
-        dispatch(updateTodo(updateInfo));
+        dispatch(updateTodo({ todoId, prop: 'status', value: newStatus }));
 
-        // calculate and update the week stats
-        const { todo } = getState();
-        const todoListOfWeek = todo[displayWeek][kidId];
-        const newStat = getCalculatedState(todoListOfWeek);
-        dispatch(setKidWeeklyStat({
-            kidId,
-            weekId: displayWeek,
-            newStat
+        const { todos, kids } = getState();
+        const kidId = todos[todoId].kidId;
+        const kid = kids[kidId];
+        kid.coins += todos[todoId].coins;
+        dispatch(updateKid({
+            id: kidId,
+            kid
         }));
     };
 };
