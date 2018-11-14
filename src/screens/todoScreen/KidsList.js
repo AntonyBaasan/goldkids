@@ -44,7 +44,7 @@ const mapStateToProp = (state) => {
     const { displayKidId, displayWeek } = state.todoDisplay;
     return {
         kids: state.kids,
-        displayKidId: displayKidId || Object.keys(state.kids)[0],
+        displayKidId,
         statistics: state.statistics,
         displayWeek
     };
