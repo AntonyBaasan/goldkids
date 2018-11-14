@@ -4,13 +4,11 @@ const INITIAL_STATE = {
     todoId1: {
         refTaskId: 'task1',
         status: 'new', // 'waiting', 'done'
-        coins: 20,
         kidId: 'xuuser1',
     },
     todoId2: {
         refTaskId: 'task2',
         status: 'new', // 'waiting', 'done'
-        coins: 10,
         kidId: 'xuuser2',
     }
 };

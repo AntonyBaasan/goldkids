@@ -6,18 +6,21 @@ const INITIAL_STATE = {
         recursion: 'oneTime', //'weekly'
         days: ['Monday', 'Tuesday'],
         assigned: ['xuuser1', 'xuuser2'],
+        coins: 30,
     },
     task2: {
         title: 'Task2',
         recursion: 'oneTime', //'weekly'
         days: ['Monday', 'Tuesday', 'Friday', 'Saturday'],
-        assigned: ['xuuser1', 'xuuser2']
+        assigned: ['xuuser1', 'xuuser2'],
+        coins: 20,
     },
     task3: {
         title: 'Task3',
         recursion: 'oneTime', //'weekly'
         days: ['Friday', 'Saturday'],
-        assigned: ['xuuser1', 'xuuser2']
+        assigned: ['xuuser1', 'xuuser2'],
+        coins: 10,
     },
 };
 

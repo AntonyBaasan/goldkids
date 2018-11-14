@@ -43,7 +43,7 @@ class TodoItem extends Component {
         const { todo, todoId, task } = this.props;
         return (
             <View >
-                <Text>{todoId}::{task.title}</Text>
+                <Text>{todoId}::{task.title}::{task.coins}</Text>
                 {this.renderButtons(todoId, todo)}
             </View>
         );
