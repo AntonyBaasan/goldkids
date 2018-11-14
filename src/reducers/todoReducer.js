@@ -1,6 +1,13 @@
 import { UPDATE_TODOS } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
+    todo1: {
+        taskId: 1,
+        status: 'new', // 'waiting', 'done'
+        coins: 20,
+        userId: 'xuuser1',
+    },
+
     week1: {
         isCurrent: true,
         xuuser1: { /* Kid Id */

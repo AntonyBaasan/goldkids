@@ -4,10 +4,12 @@ const INITIAL_STATE = {
     xuuser1: {
         name: 'Buyan',
         avatar: '',
+        coins: 100,
     },
     xuuser2: {
         name: 'Amy',
         avatar: '',
+        coins: 50,
     }
 };
 

@@ -1,40 +1,25 @@
 import { ADD_TASK_TO_ROUTINE, UPDATE_TASK_ON_ROUTINE } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-    todoId1: {
+    task1: {
         title: 'Task1',
+        recursion: 'oneTime', //'weekly'
         days: ['Monday', 'Tuesday'],
-        assigned: ['xuuser1', 'xuuser2']
+        assigned: ['xuuser1', 'xuuser2'],
     },
-    todoId2: {
+    task2: {
         title: 'Task2',
+        recursion: 'oneTime', //'weekly'
         days: ['Monday', 'Tuesday', 'Friday', 'Saturday'],
         assigned: ['xuuser1', 'xuuser2']
     },
-    todoId3: {
+    task3: {
         title: 'Task3',
+        recursion: 'oneTime', //'weekly'
         days: ['Friday', 'Saturday'],
         assigned: ['xuuser1', 'xuuser2']
     },
 };
-
-// const getNewStateAfterTraverseTodo = function (state, payload) {
-//     const { kidId, displayWeek, displayDayOfWeek, taskId, task, updatedPropAndValue } = payload;
-//     const newTask = { ...task, ...updatedPropAndValue };
-//     return {
-//         ...state,
-//         [displayWeek]: {
-//             ...state[displayWeek],
-//             [kidId]: {
-//                 ...state[displayWeek][kidId],
-//                 [displayDayOfWeek]: {
-//                     ...state[displayWeek][kidId][displayDayOfWeek],
-//                     [taskId]: newTask
-//                 }
-//             }
-//         }
-//     };
-// };
 
 export const routineReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
