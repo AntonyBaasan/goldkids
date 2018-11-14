@@ -9,6 +9,7 @@ import { statisticsReducer } from './statisticsReducer';
 import { errorReducer } from './errorReducer';
 import { tasksReducer } from './tasksReducer';
 import { taskFormReducer } from './taskFormReducer';
+import { rewardsReducer } from './rewardsReducer';
 
 export default combineReducers({
     page: pageReducer,
@@ -20,5 +21,6 @@ export default combineReducers({
     statistics: statisticsReducer,
     error: errorReducer,
     tasks: tasksReducer,
-    taskForm: taskFormReducer
+    taskForm: taskFormReducer,
+    rewards: rewardsReducer
 });
