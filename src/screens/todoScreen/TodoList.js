@@ -22,16 +22,13 @@ class TodoList extends Component {
 const mapStateToProp = (state) => {
     const { displayKidId } = state.todoDisplay;
 
-    const kidId = displayKidId;
-    let todos = {};
-    if (kidId) {
-        todos = state.todos;
-    } else {
-        todos = state.todos;
+    let todos = state.todos;
+    if (displayKidId) {
+        todos = _.pickBy(state.todos, t => t.kidId === displayKidId);
     }
     return {
         todos,
-        kidId
+        kidId: displayKidId
     };
 };
 

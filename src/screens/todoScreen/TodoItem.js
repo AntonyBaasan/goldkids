@@ -56,6 +56,7 @@ class TodoItem extends Component {
 
 const mapStateToProp = (state, ownProps) => {
     const task = state.tasks[ownProps.todo.refTaskId];
+    console.log(task);
     return {
         task
     };
