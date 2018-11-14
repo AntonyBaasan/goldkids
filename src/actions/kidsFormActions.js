@@ -38,7 +38,7 @@ export const InsertNewKidByKidsForm = () => (dispatch, getState) => {
         dispatch(AddError({ message: 'Id already exists' }));
     } else {
         dispatch(ClearError());
-        dispatch(AddNewKid(kidsForm));
+        dispatch(addNewKid(kidsForm));
         NavigatorService.navigate('KidsScreen');
     }
 };

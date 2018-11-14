@@ -10,8 +10,7 @@ export const updateTodo = ({ todoId, prop, value }) => ({
  * 1. update a todo object
  * 2. update weekly stats
  */
-export const updateTodoStatus = ({ todoId, newStatus }) => {
-    return (dispatch, getState) => {
+export const updateTodoStatus = ({ todoId, newStatus }) => (dispatch, getState) => {
         dispatch(updateTodo({ todoId, prop: 'status', value: newStatus }));
 
         const { todos, kids, tasks } = getState();
@@ -25,4 +24,3 @@ export const updateTodoStatus = ({ todoId, newStatus }) => {
             kid
         }));
     };
-};
