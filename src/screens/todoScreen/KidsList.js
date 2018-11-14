@@ -32,12 +32,10 @@ class KidsList extends Component {
 }
 
 const mapStateToProp = (state) => {
-    const { displayKidId, displayWeek } = state.todoDisplay;
+    const { displayKidId } = state.todoDisplay;
     return {
         kids: state.kids,
         displayKidId,
-        statistics: state.statistics,
-        displayWeek
     };
 };
 

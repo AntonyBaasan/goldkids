@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
     rewardId1: {
         title: 'ice cream',
-        requiredCoins: 120,
+        requiredCoins: 80,
         picture: '',
         relatedKids: ['xuuser1', 'xuuser2']
     },

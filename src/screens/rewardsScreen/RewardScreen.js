@@ -9,7 +9,7 @@ class RewardsScreen extends Component {
 
     renderRewards() {
         return _.map(this.props.rewards, (reward, rewardId) => (
-            <RewardItem key={rewardId} reward={reward} />
+            <RewardItem rewardId={rewardId} reward={reward} />
         ));
     }
 
