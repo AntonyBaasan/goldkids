@@ -9,7 +9,6 @@ class TodoList extends Component {
     renderTodoList() {
         return _.map(this.props.todos, (todo, todoId) => {
             console.log(todo, todoId);
-            // return <View></View>;
             return <TodoItem todoId={todoId} todo={todo} />;
         });
     }
