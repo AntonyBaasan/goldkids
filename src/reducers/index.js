@@ -7,7 +7,7 @@ import { todoReducer } from './todoReducer';
 import { todoDisplayReducer } from './todoDisplayReducer';
 import { statisticsReducer } from './statisticsReducer';
 import { errorReducer } from './errorReducer';
-import { routineReducer } from './routineReducer';
+import { tasksReducer } from './tasksReducer';
 import { taskFormReducer } from './taskFormReducer';
 
 export default combineReducers({
@@ -15,10 +15,10 @@ export default combineReducers({
     counter: counterReducer,
     kids: kidsReducer,
     kidsForm: kidsFormReducer,
-    todo: todoReducer,
+    todos: todoReducer,
     todoDisplay: todoDisplayReducer,
     statistics: statisticsReducer,
     error: errorReducer,
-    routine: routineReducer,
+    tasks: tasksReducer,
     taskForm: taskFormReducer
 });

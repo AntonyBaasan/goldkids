@@ -1,75 +1,17 @@
 import { UPDATE_TODOS } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-    todo1: {
-        taskId: 1,
+    todoId1: {
+        refTaskId: 'task1',
         status: 'new', // 'waiting', 'done'
         coins: 20,
         userId: 'xuuser1',
     },
-
-    week1: {
-        isCurrent: true,
-        xuuser1: { /* Kid Id */
-            Monday: {
-                todoId1: { title: 'Week1 Task1 xuuser1', done: true, score: 1 },
-                todoId2: { title: 'Week1 Task2 xuuser1', done: true, score: 2 }
-            },
-            Tuesday: {
-                todoId1: { title: 'Week1 Task1 xuuser1', done: true, score: 1 },
-            },
-            Saturday: {
-                task1: { title: 'Week1 todo 1 xuuser1', done: false, score: 1 },
-                task2: { title: 'Week1 todo 2 xuuser1', done: false, score: 1 },
-                task4: { title: 'Week1 todo 3 xuuser1', done: true, score: 1 },
-                task5: { title: 'Week1 todo 4 xuuser1', done: true, score: 1 },
-            }
-        },
-        xuuser2: {
-            Monday: {
-                todoId1: { title: 'Week1 Task1 xuuser2', done: true, score: 1 },
-            },
-            Tuesday: {
-                todoId1: { title: 'Week1 Task1 xuuser2', done: true, score: 1 },
-                todoId2: { title: 'Week1 Task2 xuuser2', done: true, score: 1 },
-            }
-        }
-    },
-    week2: {
-        isCurrent: false,
-        xuuser1: { /* Kid Id */
-            Monday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-            },
-            Tuesday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-                todoId2: { title: 'Week2 task2 xuuser1', done: true, score: 1 },
-            },
-            Wednesday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-            },
-            Thursday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-            },
-            Friday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-            },
-            Saturday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-            },
-            Sunday: {
-                todoId1: { title: 'Week2 task1 xuuser1', done: true, score: 1 },
-            }
-        },
-        xuuser2: {
-            Monday: {
-                todoId1: { title: 'week2 Task1 xuuser2', done: true, score: 1 },
-            },
-            Tuesday: {
-                todoId1: { title: 'week2 Task1 xuuser2', done: true, score: 1 },
-                todoId2: { title: 'week2 Task2 xuuser2', done: true, score: 1 },
-            }
-        }
+    todoId2: {
+        refTaskId: 'task2',
+        status: 'new', // 'waiting', 'done'
+        coins: 10,
+        userId: 'xuuser2',
     }
 };
 

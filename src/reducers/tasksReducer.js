@@ -21,7 +21,7 @@ const INITIAL_STATE = {
     },
 };
 
-export const routineReducer = (state = INITIAL_STATE, action) => {
+export const tasksReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_TASK_TO_ROUTINE:
             return { ...state, [action.payload.id]: action.payload };
