@@ -46,15 +46,13 @@ class TaskForm extends Component {
     }
     renderWeekSelection() {
         const { days } = this.props.taskForm;
-        return _.map(this.weekdays, (day) => {
-            return (<View key={day}><Button
-                bordered
-                success
-                onPress={() => this.toggleWeekday(day)}
-            >
-                <Text>{day}{days.indexOf(day) === -1 ? '' : '*'}</Text>
-            </Button></View>);
-        });
+        return _.map(this.weekdays, (day) => (<View key={day}><Button
+            bordered
+            success
+            onPress={() => this.toggleWeekday(day)}
+        >
+            <Text>{day}{days.indexOf(day) === -1 ? '' : '*'}</Text>
+        </Button></View>));
     }
     render() {
         const { taskForm } = this.props;
