@@ -7,6 +7,9 @@ import { SetKidsFormProperties, ClearError } from '../../actions/index';
 import KidsList from './KidsList';
 
 class KidsScreen extends Component {
+    static navigationOptions = {
+        title: 'Kids',
+    };
 
     addChild() {
         _.map({

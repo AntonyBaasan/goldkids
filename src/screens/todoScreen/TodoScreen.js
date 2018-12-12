@@ -6,7 +6,9 @@ import TodoList from './TodoList';
 
 
 class TodoScreen extends Component {
-
+    static navigationOptions = {
+        title: 'Todo',
+    };
     // componentDidMount() {
     //     if (this.props.displayDayOfWeek == null) {
     //         const today = new Date();

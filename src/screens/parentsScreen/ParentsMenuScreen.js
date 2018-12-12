@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { Text, Button, Container, Left, Right, Content, List, ListItem, Icon } from 'native-base';
+import { Text, Container, Left, Right, Content, List, ListItem, Icon } from 'native-base';
 import { connect } from 'react-redux';
+import NavigatorService from '../../services/NavigatorService';
 
 class ParentsMenuScreen extends Component {
+    static navigationOptions = {
+        title: 'Parents Options',
+    };
+
     renderMenuItem(label, navigateTo) {
         return (
-            <ListItem button onPress={() => { }}>
+            <ListItem button onPress={() => { NavigatorService.navigate(navigateTo); }}>
                 <Left>
                     <Text>{label}</Text>
                 </Left>
@@ -19,16 +24,13 @@ class ParentsMenuScreen extends Component {
             <Container>
                 <Content>
                     <List>
-                        {this.renderMenuItem('Kids')}
-                        {this.renderMenuItem('Task')}
+                        {this.renderMenuItem('Kids', 'KidsScreen')}
+                        {this.renderMenuItem('Task', 'RoutineScreen')}
                         {this.renderMenuItem('Rewards')}
                         {this.renderMenuItem('Notifications')}
                     </List>
                 </Content>
             </Container>
-            // <View style={{ flex: 1 }}>
-            //     <Text>Parents Menu Screen 2</Text>
-            // </View>
         );
     }
 }

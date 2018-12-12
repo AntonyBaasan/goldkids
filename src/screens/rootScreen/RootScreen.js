@@ -7,7 +7,7 @@ import {
 import NavigatorService from '../../services/NavigatorService';
 import TodoScreen from '../todoScreen/TodoScreen';
 import { KidsScreen, KidsEditScreen, KidsNewScreen } from '../kidsScreen';
-import { TaskEditScreen, TaskNewScreen } from '../routineScreen';
+import { TaskEditScreen, TaskNewScreen, RoutineScreen } from '../routineScreen';
 import { ParentsMenuScreen } from '../parentsScreen';
 import { RewardsScreen } from '../rewardsScreen';
 
@@ -33,6 +33,7 @@ const RewardsStack = createStackNavigator({
 const ParentsStack = createStackNavigator({
     ParentsMenuScreen,
     //task menus
+    RoutineScreen,
     TaskEditScreen,
     TaskNewScreen,
     //kids menu

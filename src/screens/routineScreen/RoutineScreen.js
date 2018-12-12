@@ -7,6 +7,10 @@ import RoutineItem from './RoutineItem';
 import { SetTaskFormProperties, ClearError } from '../../actions';
 
 class RoutineScreen extends Component {
+    static navigationOptions = {
+        title: 'Tasks',
+    };
+
     addNewTask() {
         _.map({
             id: uuid(),

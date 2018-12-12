@@ -6,6 +6,9 @@ import KidsList from '../todoScreen/KidsList';
 import RewardItem from './RewardItem';
 
 class RewardsScreen extends Component {
+    static navigationOptions = {
+        title: 'Todo',
+    };
 
     renderRewards() {
         return _.map(this.props.rewards, (reward, rewardId) => (
