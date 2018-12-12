@@ -5,7 +5,7 @@ import NavigatorService from '../../services/NavigatorService';
 
 class ParentsMenuScreen extends Component {
     static navigationOptions = {
-        title: 'Parents Options',
+        title: 'Control',
     };
 
     renderMenuItem(label, navigateTo) {

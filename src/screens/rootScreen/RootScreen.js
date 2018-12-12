@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Container, Header, Content, Footer, FooterTab, Button, Text } from 'native-base';
 import {
     createBottomTabNavigator,
     createStackNavigator,
@@ -22,7 +21,7 @@ export default class RootScreen extends Component {
 }
 
 const TodoStack = createStackNavigator({
-    TodoScreen,
+    TodoScreen
     // TodoSuccessScreen,
 });
 
@@ -40,13 +39,20 @@ const ParentsStack = createStackNavigator({
     KidsScreen,
     KidsEditScreen,
     KidsNewScreen,
-});
+}, {
+        title: 'Parent Control'
+    });
 
 const RootStack = createBottomTabNavigator(
     {
         Todo: TodoStack,
         Rewards: RewardsStack,
-        Parents: ParentsStack,
+        Parents: {
+            screen: ParentsStack,
+            navigationOptions: () => ({
+                title: 'Parent Control',
+            })
+        },
     },
     {
         /* Other configuration remains unchanged */
