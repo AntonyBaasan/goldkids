@@ -22,7 +22,7 @@ export const UpdateTaskByTaskForm = () => (dispatch, getState) => {
     } else {
         dispatch(ClearError());
         dispatch(UpdateTaskOnRoutine(taskForm));
-        NavigatorService.navigate('RoutineScreen');
+        NavigatorService.navigate('TasksScreen');
     }
 };
 
@@ -39,6 +39,6 @@ export const InsertNewTaskByTaskForm = () => (dispatch, getState) => {
     } else {
         dispatch(ClearError());
         dispatch(AddNewTaskToRoutine(taskForm));
-        NavigatorService.navigate('RoutineScreen');
+        NavigatorService.navigate('TasksScreen');
     }
 };

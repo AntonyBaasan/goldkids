@@ -25,7 +25,7 @@ class ParentsMenuScreen extends Component {
                 <Content>
                     <List>
                         {this.renderMenuItem('Kids', 'KidsScreen')}
-                        {this.renderMenuItem('Task', 'RoutineScreen')}
+                        {this.renderMenuItem('Task', 'TasksScreen')}
                         {this.renderMenuItem('Rewards')}
                         {this.renderMenuItem('Notifications')}
                     </List>

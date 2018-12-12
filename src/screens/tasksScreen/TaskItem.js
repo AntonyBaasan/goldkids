@@ -5,7 +5,7 @@ import { View, Text, Button } from 'native-base';
 import NavigatorService from '../../services/NavigatorService';
 import { SetTaskFormProperties, ClearError } from '../../actions';
 
-class RoutineItem extends Component {
+class TaskItem extends Component {
 
     edit(id, task) {
         _.map({
@@ -47,4 +47,4 @@ class RoutineItem extends Component {
     }
 }
 
-export default connect(null, { SetTaskFormProperties, ClearError })(RoutineItem);
+export default connect(null, { SetTaskFormProperties, ClearError })(TaskItem);

@@ -3,10 +3,10 @@ import uuid from 'uuid/v1';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Button, Text } from 'native-base';
-import RoutineItem from './RoutineItem';
+import TaskItem from './TaskItem';
 import { SetTaskFormProperties, ClearError } from '../../actions';
 
-class RoutineScreen extends Component {
+class TasksScreen extends Component {
     static navigationOptions = {
         title: 'Tasks',
     };
@@ -22,10 +22,10 @@ class RoutineScreen extends Component {
         this.props.navigation.navigate('TaskNewScreen');
     }
     renderTasks() {
-        const { routine } = this.props;
-        console.log(routine);
-        return _.map(routine, (task, taskId) =>
-            <RoutineItem
+        const { tasks } = this.props;
+        console.log(tasks);
+        return _.map(tasks, (task, taskId) =>
+            <TaskItem
                 key={taskId}
                 task={task}
                 id={taskId}
@@ -48,7 +48,7 @@ class RoutineScreen extends Component {
 }
 
 const mapStateToProp = (state) => ({
-    routine: state.routine
+    tasks: state.tasks
 });
 
-export default connect(mapStateToProp, { SetTaskFormProperties, ClearError })(RoutineScreen);
+export default connect(mapStateToProp, { SetTaskFormProperties, ClearError })(TasksScreen);
