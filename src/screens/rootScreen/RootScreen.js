@@ -11,7 +11,6 @@ import { TaskEditScreen, TaskNewScreen } from '../routineScreen';
 import { ParentsMenuScreen } from '../parentsScreen';
 import { RewardsScreen } from '../rewardsScreen';
 
-
 export default class RootScreen extends Component {
     render() {
         return (
@@ -33,6 +32,7 @@ const RewardsStack = createStackNavigator({
 
 const ParentsStack = createStackNavigator({
     ParentsMenuScreen,
+    //task menus
     TaskEditScreen,
     TaskNewScreen,
     //kids menu

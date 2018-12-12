@@ -9,6 +9,9 @@ class RewardItem extends Component {
     }
 
     renderButton(rewardId, reward) {
+        if (!this.props.currentKid) {
+            return;
+        }
         if (this.props.currentKid.coins >= reward.requiredCoins) {
             return this.renderUseButton(rewardId, reward);
         }
